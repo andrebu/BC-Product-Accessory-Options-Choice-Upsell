@@ -3,10 +3,13 @@
 			.productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
 				border: 5px solid #39b54a !important;\
 			}\
-			.productOptionPickListSwatch .swatchTexture .textureContainer:nth-of-type(5) {\
+			.productOptionPickListSwatch .swatchTexture .textureContainer {\
+				border: 5px solid #eee !important;\
+			}\
+			.productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
 				margin-right:10px !important;\
 			}\
-			.productOptionPickListSwatch .swatchTexture .textureContainer:nth-child(2) {\
+			.productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
 				margin-right:10px !important;\
 			}\
 			</style>')
@@ -25,12 +28,13 @@
 				'font-weight' : '700',
 			});
 			var optionThumbnails = productAccessoryChoiceExistance.parent().parent().parent().find('.swatchTexture .textureContainer .thumbnail');
-			var i = 0;
+// 			var i = 0;
 			optionThumbnails.each(function() {
 				var optionImage = $(this).parent().parent().find('.previewContent .preview');
 				var optionImageContainerSpan = $(this).parent();
 				var optionImageUrl = optionImage.attr('src');
 				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
+/*
 				if (i < 2) {
 					$(this).parent().attr({style: 'border: 5px solid #eee !important'});
 				}
@@ -38,6 +42,7 @@
 					optionImageContainerSpan.attr('style', 'border: 5px solid #eee !important');
 				}
 				i++;
+*/
 			})
 			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
 			console.log(optionListItem);
@@ -59,10 +64,10 @@
                 },
                 mouseleave: function(event) {
                     if (!$(this).parent().hasClass('selectedValue')) {
-	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #eee !important'});
+	                    $(this).find('.textureContainer').attr({style: ''});
                     }
                     else {
-	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
+	                    $(this).find('.textureContainer').attr({style: ''});
                     }
                 },
 /*
