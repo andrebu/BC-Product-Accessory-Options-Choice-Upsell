@@ -18,51 +18,38 @@
 				var optionImageUrl = optionImage.attr('src');
 				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
 				if (i < 2) {
-					$(this).parent().attr({style: 'margin-right:10px !important; border: 5px solid #eeeeee !important'});
+					$(this).parent().attr({style: 'margin-right:10px !important; border: 5px solid #eee !important'});
 				}
 				else {
-					optionImageContainerSpan.attr('style', 'border: 5px solid #eeeeee !important');
+					optionImageContainerSpan.attr('style', 'border: 5px solid #eee !important');
 				}
 				i++;
 			})
-                colorSwatchBox.on({
+			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
+			console.log(optionListItem);
+			if (optionListItem.hasClass('selectedValue')) {
+                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
+			}
+            optionListItem.on({
                 mouseenter: function(event) {
-                    originalImage = $(this).parents().eq(2).find('.ProductImage a img').attr('data-original');
-                    $(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
-                    if (!$(this).hasClass('selectedColorBox')) {
-                        $(this).css({
-                            'border': '2px solid #666',
-                            //'margin': '4px 3px 0 0'
-                        });
+                    if (!$(this).parent().hasClass('selectedValue')) {
+	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
+                    }
+                    else {
+                        $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
                     }
                 },
                 mouseleave: function(event) {
-                    if (!$(this).hasClass('selectedColorBox')) {
-                        $(this).css({
-                            'border': '2px solid #d5d5d5',
-                            //'margin': '5px 4px 1px 1px'
-                        });
-                        //productImage.attr('src', activeImage);
-                        $(this).parents().eq(2).find('.ProductImage a img').attr('src', originalImage);
+                    if (!$(this).parent().hasClass('selectedValue')) {
+	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #eee !important'});
                     }
                 },
                 click: function(event) {
-                    $(this).parent().find('li').removeClass('selectedColorBox');
-                    $(this).addClass('selectedColorBox');
-                    $(this).parents().eq(2).find('.ProductImage a img').attr('src', color.url);
-                    $(this).parents().eq(2).find('.ProductImage a img').attr('data-original', color.url);
-                    $(this).parent().find('li').css({
-                        'border': '2px solid #d5d5d5',
-                        //'margin': '5px 4px 1px 1px'
-                    });
-                    $(this).css({
-                        'border': '2px solid #39b54a',
-                        //'margin': '4px 3px 0 0'
-                    });
-                    //activeImage = $(this).parents().eq(2).find('.ProductImage a img').attr('src');
+				if (optionListItem.hasClass('selectedValue')) {
+	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
+				}
                 }
             });
-
 		}
 	};
 	
