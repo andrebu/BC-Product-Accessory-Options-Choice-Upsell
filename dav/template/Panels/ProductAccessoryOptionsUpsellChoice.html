@@ -45,17 +45,20 @@
 					margin-right:4% !important;\
 				}\
 			}\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch .swatchOneColour,\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch .textureContainer {\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch .textureContainer,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label {\
 				border: 4px solid #eee !important;\
 				border-radius: 3px;\
 			}\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch:hover .swatchOneColour,\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch:hover .textureContainer {\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch:hover .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch:hover .textureContainer,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option:hover label {\
 				border: 4px solid #484848 !important;\
 			}\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch.selectedValue .swatchOneColour,\
-			.productColorChoiceSelection .productOptionPickListSwatch .swatch.selectedValue .textureContainer {\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch.selectedValue .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch li.swatch.selectedValue .textureContainer,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option.selectedValue label {\
 				border: 4px solid #39B54A !important;\
 			}\
 			</style>')
@@ -63,7 +66,39 @@
 
 	function producPageImprovements() {
 //This function improves the Color or Size Options selection on Product Pages
-		function productPageColorAndSizeSwatchImprovements() {
+		function productPageSizeSelectionImprovements() {
+			var productSizeSelectionName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Joint Size:")');
+			productSizeSelectionName.css({
+				'font-family' : 'tahoma',
+				'font-size' : '14px',
+				'font-weight' : '700',
+				'text-transform' : 'uppercase',
+				'color' : '#39b54a',
+			});
+			productSizeSelectionName.parent().css({
+				'text-align' : 'center',
+				'padding' : '0',
+			});
+			var mainSizeContainer = productSizeSelectionName.parents().eq(2);
+			mainSizeContainer.addClass('productSizeSelection');
+			$('.productSizeSelection').find('.required').hide();
+			var sizeSelectionListItems = mainSizeContainer.find('.productOptionViewRectangle li.option');
+			//sizeSelectionListItems.find('label').css('margin-bottom', '0');
+			sizeSelectionListItems.find('label').attr({style: 'margin-bottom: 0 !important;'});
+			var ulSizeSelectionWidth = 0;
+			sizeSelectionListItems.each(function() {
+			    ulSizeSelectionWidth = ulSizeSelectionWidth + $(this).width()
+			    console.log(ulSizeSelectionWidth);
+			});
+			sizeSelectionListItems.parent().css({
+				'width' : (ulSizeSelectionWidth + 14),
+				'margin' : '0 auto',
+			});
+		};
+		productPageSizeSelectionImprovements();
+		
+//This function improves the Color or Size Options selection on Product Pages
+		function productPageColorSwatchImprovements() {
 			var productColorChoiceName = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Color:")');
 			productColorChoiceName.css({
 				'font-family' : 'tahoma',
@@ -85,14 +120,18 @@
 			colorChoiceListItems.each(function() {
 			    ulColorChoiceWidth = ulColorChoiceWidth + $(this).width()
 			});
-					var optionPreview = $(this).parents().eq(1).find('.previewContent');
-					optionPreview.remove();
+
+/*
+			var optionPreview = $(this).parents().eq(1).find('.previewContent');
+			optionPreview.remove();
+*/
+
 			colorChoiceListItems.parent().css({
 				'width' : (ulColorChoiceWidth + 14),
 				'margin' : '0 auto',
 			});
 		};
-		productPageColorAndSizeSwatchImprovements();
+		productPageColorSwatchImprovements();
 			
 		function productAccessoryChoice() {
 //This function improves the Accessory Choice Selection on Product Pages
