@@ -26,6 +26,9 @@
 				text-align: center;\
 				margin-right: 0 !important;\
 			}\
+			.accessoryOptionsSelection .swatchTexture .preview {\
+				display: none;\
+			}\
 			</style>')
         .appendTo('head');
 
@@ -42,14 +45,16 @@
 				'color' : '#39b54a',
 				'font-weight' : '700',
 			});
-			var optionThumbnails = productAccessoryChoiceExistance.parent().parent().parent().find('.swatchTexture .textureContainer .thumbnail');
+			var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
 			optionThumbnails.each(function() {
-				var optionImage = $(this).parent().parent().find('.previewContent .preview');
+				var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
 				var optionImageContainerSpan = $(this).parent();
 				var optionImageUrl = optionImage.attr('src');
 				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 104px !important; height: 130px !important;'});
+				var optionPreview = $(this).parents().eq(1).find('.previewContent');
+				optionPreview.remove();
 			})
-			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
+			var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture label');
             optionListItem.on({
                 mouseenter: function(event) {
                     if (!$(this).parent().hasClass('selectedValue')) {
