@@ -1,23 +1,31 @@
 <script type="text/javascript">
     $('<style type="text/css">\
 			/* Product Accessory Options Upsell Choice */\
-			.accessoryOptionsSelection .swatchTexture {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture {\
 				vertical-align: middle;\
+				width: 30%;\
 			}\
-			.accessoryOptionsSelection .selectedValue.swatchTexture .textureContainer {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture label {\
+				max-width: 100%;\
+			}\
+			.accessoryOptionsSelection .productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
 				border: 5px solid #39b54a !important;\
 			}\
-			.accessoryOptionsSelection .swatchTexture .textureContainer {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer {\
 				border: 5px solid #eee !important;\
 				border-radius: 7px;\
+				max-width: 100%\
 			}\
-			.accessoryOptionsSelection .swatchTexture:nth-of-type(1) .textureContainer {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer .thumbnail {\
+				max-width: 100%\
+			}\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {\
 				margin-right:10px !important;\
 			}\
-			.accessoryOptionsSelection .swatchTexture:nth-of-type(2) .textureContainer {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) {\
 				margin-right:10px !important;\
 			}\
-			.accessoryOptionsSelection .swatchTexture .name {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {\
 				display: block !important;\
 				max-width: 120px;\
 				font-size: 12px;\
@@ -26,52 +34,108 @@
 				text-align: center;\
 				margin-right: 0 !important;\
 			}\
-			.accessoryOptionsSelection .swatchTexture .preview {\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .preview {\
 				display: none;\
+			}\
+			@media screen and (max-width: 767px) {\
+				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
+					margin-right:4% !important;\
+				}\
+				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
+					margin-right:4% !important;\
+				}\
+			}\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch .textureContainer {\
+				border: 4px solid #eee !important;\
+				border-radius: 3px;\
+			}\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch:hover .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch:hover .textureContainer {\
+				border: 4px solid #484848 !important;\
+			}\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch.selectedValue .swatchOneColour,\
+			.productColorChoiceSelection .productOptionPickListSwatch .swatch.selectedValue .textureContainer {\
+				border: 4px solid #39B54A !important;\
 			}\
 			</style>')
         .appendTo('head');
 
-	function productAccessoryChoice() {
-		var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
-		productAccessoryChoiceExistance.parents().eq(2).addClass('accessoryOptionsSelection');
-		
-		if (productAccessoryChoiceExistance.length) {
-			var rquiredOptionAsterisk = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .required');
-			rquiredOptionAsterisk.hide();
-			productAccessoryChoiceExistance.parent().css({
-				'text-align' : 'center',
+	function producPageImprovements() {
+//This function improves the Color or Size Options selection on Product Pages
+		function productPageColorAndSizeSwatchImprovements() {
+			var productColorChoiceName = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Color:")');
+			productColorChoiceName.css({
+				'font-family' : 'tahoma',
+				'font-size' : '14px',
+				'font-weight' : '700',
 				'text-transform' : 'uppercase',
 				'color' : '#39b54a',
-				'font-weight' : '700',
 			});
-			var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
-			optionThumbnails.each(function() {
-				var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
-				var optionImageContainerSpan = $(this).parent();
-				var optionImageUrl = optionImage.attr('src');
-				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 104px !important; height: 130px !important;'});
-				var optionPreview = $(this).parents().eq(1).find('.previewContent');
-				optionPreview.remove();
-			})
-			var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture label');
-            optionListItem.on({
-                mouseenter: function(event) {
-                    if (!$(this).parent().hasClass('selectedValue')) {
-	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
-                    }
-                },
-                mouseleave: function(event) {
-                    $(this).find('.textureContainer').attr({style: ''});
-                },
-                click: function(event) {
-                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
-                }
-            });
-		}
-	};
-	
-	$(document).ready(function() {
+			productColorChoiceName.parent().css({
+				'text-align' : 'center',
+				'padding' : '0',
+			});
+			var mainColorChoiceContainer = productColorChoiceName.parents().eq(2);
+			mainColorChoiceContainer.addClass('productColorChoiceSelection');
+			$('.productColorChoiceSelection').find('.required').hide();
+			var colorChoiceListItems = mainColorChoiceContainer.find('.productOptionPickListSwatch li.swatch');
+			colorChoiceListItems.find('label').css('margin-bottom', '0');
+			var ulColorChoiceWidth = 0;
+			colorChoiceListItems.each(function() {
+			    ulColorChoiceWidth = ulColorChoiceWidth + $(this).width()
+			});
+					var optionPreview = $(this).parents().eq(1).find('.previewContent');
+					optionPreview.remove();
+			colorChoiceListItems.parent().css({
+				'width' : (ulColorChoiceWidth + 14),
+				'margin' : '0 auto',
+			});
+		};
+		productPageColorAndSizeSwatchImprovements();
+			
+		function productAccessoryChoice() {
+//This function improves the Accessory Choice Selection on Product Pages
+			var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
+			productAccessoryChoiceExistance.parents().eq(2).addClass('accessoryOptionsSelection');
+			if (productAccessoryChoiceExistance.length) {
+				var rquiredOptionAsterisk = productAccessoryChoiceExistance.parents().eq(2).find('.productAttributeLabel .required');
+				rquiredOptionAsterisk.hide();
+				productAccessoryChoiceExistance.parent().css({
+					'text-align' : 'center',
+					'text-transform' : 'uppercase',
+					'color' : '#39b54a',
+					'font-weight' : '700',
+				});
+				var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
+				optionThumbnails.each(function() {
+					var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
+					var optionImageContainerSpan = $(this).parent();
+					var optionImageUrl = optionImage.attr('src');
+					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 100px !important; height: 125px !important;'});
+					var optionPreview = $(this).parents().eq(1).find('.previewContent');
+					optionPreview.remove();
+				})
+				var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture label');
+	            optionListItem.on({
+	                mouseenter: function(event) {
+	                    if (!$(this).parent().hasClass('selectedValue')) {
+		                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
+	                    }
+	                },
+	                mouseleave: function(event) {
+	                    $(this).find('.textureContainer').attr({style: ''});
+	                },
+	                click: function(event) {
+	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
+	                }
+	            });
+			}
+		};
 		productAccessoryChoice();
+	};
+
+	$(document).ready(function() {
+		producPageImprovements();
 	});
 </script>
