@@ -25,7 +25,7 @@ BigCommerce Product Accessory Options Choice Upsell
 ​    </body>
 </html>​
 ```  
-![BigCommerce Category Page Color Swatch Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Category-Page-Color-Swatch/master/CategoryPageColorSwatch-Screen%20Shot%202015-03-09%20at%208.13.05%20PM.png "BigCommerce Product Page Color Swatch Installation Example")
+![BigCommerce Product Accessory Options Choice Upsell Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Product-Accessory-Options-Choice-Upsell/master/BC-Product-Accessory-Options-Choice-Upsell.png "BigCommerce Product Accessory Options Choice Upsell Installation Example")
 
 
 
