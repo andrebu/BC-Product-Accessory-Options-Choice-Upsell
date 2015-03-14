@@ -1,3 +1,4 @@
+<script type="text/javascript">
     $('<style type="text/css">\
 			/* Color and Size Options on Category Pages */\
 			.productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
@@ -28,55 +29,25 @@
 				'font-weight' : '700',
 			});
 			var optionThumbnails = productAccessoryChoiceExistance.parent().parent().parent().find('.swatchTexture .textureContainer .thumbnail');
-// 			var i = 0;
 			optionThumbnails.each(function() {
 				var optionImage = $(this).parent().parent().find('.previewContent .preview');
 				var optionImageContainerSpan = $(this).parent();
 				var optionImageUrl = optionImage.attr('src');
 				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
-/*
-				if (i < 2) {
-					$(this).parent().attr({style: 'border: 5px solid #eee !important'});
-				}
-				else {
-					optionImageContainerSpan.attr('style', 'border: 5px solid #eee !important');
-				}
-				i++;
-*/
 			})
 			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
-			console.log(optionListItem);
-/*
-			if (optionListItem.hasClass('selectedValue')) {
-                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
-			}
-*/
             optionListItem.on({
                 mouseenter: function(event) {
                     if (!$(this).parent().hasClass('selectedValue')) {
 	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
                     }
-/*
-                    else {
-                        $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
-                    }
-*/
                 },
                 mouseleave: function(event) {
-                    if (!$(this).parent().hasClass('selectedValue')) {
-	                    $(this).find('.textureContainer').attr({style: ''});
-                    }
-                    else {
-	                    $(this).find('.textureContainer').attr({style: ''});
-                    }
+                    $(this).find('.textureContainer').attr({style: ''});
                 },
-/*
                 click: function(event) {
-					if ($(this).parent().hasClass('selectedValue')) {
-		                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
-					}
+                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
                 }
-*/
             });
 		}
 	};
@@ -84,3 +55,4 @@
 	$(document).ready(function() {
 		productAccessoryChoice();
 	});
+</script>
