@@ -1,19 +1,57 @@
-.productOptionPickListSwatch .swatchTexture .thumbnail {
-width: 110px !important;
-height: 110px !important;
-}
+    $('<style type="text/css">\
+			/* Color and Size Options on Category Pages */\
+			.productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
+				border: 5px solid #39b54a !important;\
+			}\
+			.productOptionPickListSwatch .swatchTexture .textureContainer {\
+				border: 5px solid #eee !important;\
+			}\
+			.productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
+				margin-right:10px !important;\
+			}\
+			.productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
+				margin-right:10px !important;\
+			}\
+			</style>')
+        .appendTo('head');
 
-<script type="text/javascript">
-	function insertCalculatedSharingDiscount() {
-
-var productAccessoryChoice = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name');
-
-var productAccessoryChoice = $('.productOptionPickListSwatch .swatchTexture .textureContainer .thumbnail');
-
-var productAccessoryChoice = $('.productOptionPickListSwatch .swatchTexture .previewContent .preview');
+	function productAccessoryChoice() {
+		var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
+		
+		if (productAccessoryChoiceExistance.length) {
+			var rquiredOptionAsterisk = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .required');
+			rquiredOptionAsterisk.hide();
+			productAccessoryChoiceExistance.parent().css({
+				'text-align' : 'center',
+				'text-transform' : 'uppercase',
+				'color' : '#39b54a',
+				'font-weight' : '700',
+			});
+			var optionThumbnails = productAccessoryChoiceExistance.parent().parent().parent().find('.swatchTexture .textureContainer .thumbnail');
+// 			var i = 0;
+			optionThumbnails.each(function() {
+				var optionImage = $(this).parent().parent().find('.previewContent .preview');
+				var optionImageContainerSpan = $(this).parent();
+				var optionImageUrl = optionImage.attr('src');
+				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
+			})
+			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
+            optionListItem.on({
+                mouseenter: function(event) {
+                    if (!$(this).parent().hasClass('selectedValue')) {
+	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
+                    }
+                },
+                mouseleave: function(event) {
+                    $(this).find('.textureContainer').attr({style: ''});
+                },
+                click: function(event) {
+                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
+                }
+            });
+		}
 	};
 	
 	$(document).ready(function() {
-		insertCalculatedSharingDiscount();
+		productAccessoryChoice();
 	});
-</script>
