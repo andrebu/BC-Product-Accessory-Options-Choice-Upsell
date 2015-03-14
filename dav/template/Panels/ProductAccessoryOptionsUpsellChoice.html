@@ -1,24 +1,37 @@
 <script type="text/javascript">
     $('<style type="text/css">\
-			/* Color and Size Options on Category Pages */\
-			.productAttributeValue .productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
+			/* Product Accessory Options Upsell Choice */\
+			.accessoryOptionsSelection .swatchTexture {\
+				vertical-align: middle;\
+			}\
+			.accessoryOptionsSelection .selectedValue.swatchTexture .textureContainer {\
 				border: 5px solid #39b54a !important;\
 			}\
-			.productAttributeValue .productOptionPickListSwatch .swatchTexture .textureContainer {\
+			.accessoryOptionsSelection .swatchTexture .textureContainer {\
 				border: 5px solid #eee !important;\
 				border-radius: 7px;\
 			}\
-			.productAttributeValue .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
+			.accessoryOptionsSelection .swatchTexture:nth-of-type(1) .textureContainer {\
 				margin-right:10px !important;\
 			}\
-			.productAttributeValue .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
+			.accessoryOptionsSelection .swatchTexture:nth-of-type(2) .textureContainer {\
 				margin-right:10px !important;\
+			}\
+			.accessoryOptionsSelection .swatchTexture .name {\
+				display: block !important;\
+				max-width: 120px;\
+				font-size: 12px;\
+				height: 40px;\
+				line-height: 1.3;\
+				text-align: center;\
+				margin-right: 0 !important;\
 			}\
 			</style>')
         .appendTo('head');
 
 	function productAccessoryChoice() {
 		var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
+		productAccessoryChoiceExistance.parents().eq(2).addClass('accessoryOptionsSelection');
 		
 		if (productAccessoryChoiceExistance.length) {
 			var rquiredOptionAsterisk = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .required');
@@ -34,7 +47,7 @@
 				var optionImage = $(this).parent().parent().find('.previewContent .preview');
 				var optionImageContainerSpan = $(this).parent();
 				var optionImageUrl = optionImage.attr('src');
-				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
+				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 104px !important; height: 130px !important;'});
 			})
 			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
             optionListItem.on({
