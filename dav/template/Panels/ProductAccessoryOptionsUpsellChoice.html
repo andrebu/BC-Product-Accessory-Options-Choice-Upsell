@@ -1,20 +1,3 @@
-    $('<style type="text/css">\
-			/* Color and Size Options on Category Pages */\
-			.productOptionPickListSwatch .selectedValue.swatchTexture .textureContainer {\
-				border: 5px solid #39b54a !important;\
-			}\
-			.productOptionPickListSwatch .swatchTexture .textureContainer {\
-				border: 5px solid #eee !important;\
-			}\
-			.productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
-				margin-right:10px !important;\
-			}\
-			.productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
-				margin-right:10px !important;\
-			}\
-			</style>')
-        .appendTo('head');
-
 	function productAccessoryChoice() {
 		var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
 		
@@ -28,27 +11,18 @@
 				'font-weight' : '700',
 			});
 			var optionThumbnails = productAccessoryChoiceExistance.parent().parent().parent().find('.swatchTexture .textureContainer .thumbnail');
-// 			var i = 0;
+			var i = 0;
 			optionThumbnails.each(function() {
-				var optionImage = $(this).parent().parent().find('.previewContent .preview');
-				var optionImageContainerSpan = $(this).parent();
-				var optionImageUrl = optionImage.attr('src');
-				$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 106px !important; height: 106px !important;'});
+				$(this).parent().attr({style: 'border: 5px solid #eeeeee !important;'});
+				var optionImages = $(this).parent().parent().find('.previewContent .preview');
+				var optionImagesUrl = optionImages.attr('src');
+				console.log(this);
+				$(this).attr({style: 'background-image: url("' + optionImagesUrl + '"); width: 106px !important; height: 106px !important;'});
+				if (i < 2) {
+					$(this).parent().attr({style: 'margin-right:10px !important'});
+				}
+				i++;
 			})
-			var optionListItem = productAccessoryChoiceExistance.parent().parent().parent().find('li.swatchTexture label');
-            optionListItem.on({
-                mouseenter: function(event) {
-                    if (!$(this).parent().hasClass('selectedValue')) {
-	                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #484848 !important'});
-                    }
-                },
-                mouseleave: function(event) {
-                    $(this).find('.textureContainer').attr({style: ''});
-                },
-                click: function(event) {
-                    $(this).find('.textureContainer').attr({style: 'border: 5px solid #39b54a !important'});
-                }
-            });
 		}
 	};
 	
