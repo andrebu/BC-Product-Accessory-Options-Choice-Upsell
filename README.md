@@ -34,8 +34,6 @@ BigCommerce Product Accessory Options Choice Upsell
 To get this to work, you just need to require the module once per run-time, like so.
 
     1. Just install and it'll do the work for you!  
-    2. Color options must contain the term "Colors:" in the Option title
-    3. Size options must contain the term "Sizes:" in the Option title
 
 
 
