@@ -44,6 +44,7 @@ To get this to work, you just need to require the module once per run-time, like
 - [How to apply !important using .css()?](http://stackoverflow.com/questions/2655925/how-to-apply-important-using-css)
 - [jQuery selector value escaping](http://stackoverflow.com/questions/739695/jquery-selector-value-escaping)
 - [CSS3 :nth-of-type() Selector](http://www.w3schools.com/cssref/sel_nth-of-type.asp)
+- [Get ul width with floating li's using jQuery/JavaScript](http://stackoverflow.com/questions/13066054/get-ul-width-with-floating-lis-using-jquery-javascript)
 
 
 ## Other BigCommerce modules that I've made
