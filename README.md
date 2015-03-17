@@ -36,6 +36,10 @@ To get this to work, you just need to require the module once per run-time, like
     1. Just install and it'll do the work for you!  
 
 
+##To Do
+
+1. Fix mobile responsiveness issue on 13' screens (overhaul BC template CSS)
+
 
 ##Resources
 
