@@ -38,7 +38,7 @@ To get this to work, you just need to require the module once per run-time, like
 
 ##To Do
 
-1. Fix mobile responsiveness issue on 13' screens (overhaul BC template CSS)
+1. ~~Fix mobile responsiveness issue on 13' screens (overhaul BC template CSS)~~
 
 
 ##Resources
@@ -47,6 +47,13 @@ To get this to work, you just need to require the module once per run-time, like
 - [jQuery selector value escaping](http://stackoverflow.com/questions/739695/jquery-selector-value-escaping)
 - [CSS3 :nth-of-type() Selector](http://www.w3schools.com/cssref/sel_nth-of-type.asp)
 - [Get ul width with floating li's using jQuery/JavaScript](http://stackoverflow.com/questions/13066054/get-ul-width-with-floating-lis-using-jquery-javascript)
+- [How to Populate jQuery Object with Data from Link Inside HTML List?](http://stackoverflow.com/questions/4511255/how-to-populate-jquery-object-with-data-from-link-inside-html-list)
+- [jQuery Types():Object()](http://api.jquery.com/Types/#Object)
+- [A Space between Inline-Block List Items [duplicate]](ttp://stackoverflow.com/questions/5256533/a-space-between-inline-block-list-items)
+- [when window is resized --- Change div width live with jQuery](http://stackoverflow.com/questions/8153281/change-div-width-live-with-jquery)
+- [jQuery .width()](http://api.jquery.com/width/)
+- [jQuery - widest item on page](http://stackoverflow.com/questions/1233343/jquery-widest-item-on-page)
+- []()
 
 
 ## Other BigCommerce modules that I've made
