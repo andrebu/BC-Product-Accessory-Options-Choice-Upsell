@@ -156,6 +156,26 @@
 
 	function producPageImprovements() {
 //This function improves the Color or Size Options selection on Product Pages
+		function productPageChooseOptions() {
+			var chooseOptionsnName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Choose Options:")');
+			chooseOptionsnName.css({
+				'font-family' : 'tahoma',
+				'font-size' : '14px',
+				'font-weight' : '700',
+				'text-transform' : 'uppercase',
+				'color' : '#39b54a',
+			});
+			chooseOptionsnName.parent().css({
+				'text-align' : 'center',
+				'padding' : '0',
+			});
+			var mainChooseOptionsContainer = chooseOptionsnName.parents().eq(2);
+			mainChooseOptionsContainer.addClass('productChooseOptions');
+			$('.productChooseOptions').find('.required').hide();
+		};
+		productPageChooseOptions();
+		
+//This function improves the Color or Size Options selection on Product Pages
 		function productPageSizeSelectionImprovements() {
 			var productSizeSelectionName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Joint Size:")');
 			productSizeSelectionName.css({
@@ -236,6 +256,7 @@
 					'color' : '#39b54a',
 					'font-weight' : '700',
 				});
+				// Create the thumbnails object with URLs as values and corresponding option names as index
 				var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
 				optionThumbUrlObject = {};				
 				optionThumbnails.each(function() {
@@ -246,28 +267,21 @@
 					var thumbHeight = thumbWidth * 1.25;
 					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); height: ' + thumbHeight + 'px !important;'});
 					optionThumbUrlObject[optionName] = optionImageUrl;
-					//optionThumbUrlObject.push ({
-					//	name: $(this).parent().parent().find('.name').text(),
-					//	value: optionImageUrl,
-					//});
-					console.log(optionThumbUrlObject);
-					//var optionPreview = $(this).parents().eq(1).find('.previewContent');
-					//optionPreview.remove();
 				});
+				// Dynamically set the thumbnail height as width*1.25
 				function thumbHeightSetter() {
-				optionThumbnails.each(function() {
-						var optionName = $(this).parent().parent().find('.name').text();
-						var thumbWidth = $(this).width();
-						var thumbHeight = thumbWidth * 1.25;
-						$(this).attr({style: 'background-image: url("' + optionThumbUrlObject[optionName] + '"); height: ' + thumbHeight + 'px !important;'});
-						console.log(this);
-						console.log('thumb height setter fired!', thumbWidth, thumbHeight);
-				});
+					optionThumbnails.each(function() {
+							var optionName = $(this).parent().parent().find('.name').text();
+							var thumbWidth = $(this).width();
+							var thumbHeight = thumbWidth * 1.25;
+							$(this).attr({style: 'background-image: url("' + optionThumbUrlObject[optionName] + '"); height: ' + thumbHeight + 'px !important;'});
+					});
 				};
 				thumbHeightSetter();
 				// Remove preview popup boxes from product accessory choice after the image URL are retrieved and stored
 				var optionPreview = $('.accessoryOptionsSelection .previewContent');
 				optionPreview.remove();
+				// Define the mouse  hover behavior for the accessory option choice list items
 				var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture');
 	            optionListItem.on({
 	                mouseenter: function(event) {
@@ -284,14 +298,8 @@
 	            });
 				// Find the width of all list items and set their ul to this width
 				function optionsUlSetter() {
-//					var optionChoiceUlWidth = 0;
-//					optionThumbnails.parents('.swatchTexture').each(function() {
-//					    optionChoiceUlWidth = optionChoiceUlWidth + $(this).width();
-//					});
 					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
-					//console.log(optionChoiceUl);
 					var optionChoiceUlWidth = optionThumbnails.parents('.productOptionPickListSwatch').width() - 20;
-					//console.log(optionChoiceUlWidth);
 					optionChoiceUl.css('width', optionChoiceUlWidth);
 				};
 				optionsUlSetter();
@@ -313,6 +321,7 @@
 					optionNameSpan.css('height', highestSpan);
 				};
 				optionNameSpanHeightSetter();
+				// Call all the resizing functions upon window resize
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
 					optionsUlSetter();
