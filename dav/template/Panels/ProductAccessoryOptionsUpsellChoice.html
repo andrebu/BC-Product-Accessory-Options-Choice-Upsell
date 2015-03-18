@@ -7,9 +7,11 @@
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture {\
 				vertical-align: middle;\
-				width: 28%;\
+				box-sizing: border-box;\
 				border: 5px solid #eee !important;\
 				border-radius: 7px;\
+				width: 28%;\
+				width: calc(98% / 3);\
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture label {\
 				max-width: 100%;\
@@ -39,7 +41,7 @@
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {\
 				display: block !important;\
 				max-width: 120px;\
-				font-size: 12px;\
+				font-size: 0.9vw;\
 				/*height: 40px;*/\
 				line-height: 1.3;\
 				text-align: center;\
@@ -77,12 +79,17 @@
 				position: absolute;\
 				right: 0;\
 			}\
+			.DetailRow.qty {\
+				display: flex;\
+				flex-direction: row;\
+			}\
 			.addto {\
 				display: inline-block;\
 				vertical-align: middle;\
 				margin: 0;\
 				padding: 0;\
 				border: 0;\
+				flex-grow: 1;\
 			}\
 			.DetailRow.InventoryLevel {\
 				display: inline-block;\
@@ -90,6 +97,7 @@
 				margin: 0;\
 				width: 76%;\
 				float: right;\
+				flex-grow: 1;\
 			}\
 			.OutOfStockMessage #InStockNotifyOutOfStock {\
 				font-size: 12px;\
@@ -337,12 +345,12 @@
 	                }
 	            });
 				// Find the width of all list items and set their ul to this width
-				function optionsUlSetter() {
+				function optionsUlWidthSetter() {
 					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
 					var optionChoiceUlWidth = optionThumbnails.parents('.productOptionPickListSwatch').width() - 20;
 					optionChoiceUl.css('width', optionChoiceUlWidth);
 				};
-				optionsUlSetter();
+				//optionsUlWidthSetter();
 				// Find the tallest .name span and set the others to same height
 				function optionNameSpanHeightSetter() {
 		            var highestOptionNameSpan = null;
@@ -371,7 +379,7 @@
 				// Call all the resizing functions upon window resize
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
-					optionsUlSetter();
+					//optionsUlWidthSetter();
 					thumbHeightSetter();
 				});
 			}
