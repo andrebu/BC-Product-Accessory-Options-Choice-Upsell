@@ -53,7 +53,10 @@ To get this to work, you just need to require the module once per run-time, like
 - [when window is resized --- Change div width live with jQuery](http://stackoverflow.com/questions/8153281/change-div-width-live-with-jquery)
 - [jQuery .width()](http://api.jquery.com/width/)
 - [jQuery - widest item on page](http://stackoverflow.com/questions/1233343/jquery-widest-item-on-page)
-- []()
+- [flex and CSS calc() -- Responsive, Fluid-Width, Variable-Item Navigation with CSS](http://www.sitepoint.com/responsive-fluid-width-variable-item-navigation-css/)
+- [How can one create an overlay in css?](http://stackoverflow.com/questions/9724035/how-can-one-create-an-overlay-in-css)
+- [JavaScript moving element in the DOM](http://stackoverflow.com/questions/1363650/javascript-moving-element-in-the-dom)
+- [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
 
 
 ## Other BigCommerce modules that I've made
