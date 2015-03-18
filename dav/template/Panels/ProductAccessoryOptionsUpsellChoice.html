@@ -43,7 +43,7 @@
 				/*height: 40px;*/\
 				line-height: 1.3;\
 				text-align: center;\
-				margin-right: 0 !important;\
+				margin: 0 auto !important;\
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .preview {\
 				display: none;\
@@ -157,8 +157,8 @@
 		};
 		productPageColorSwatchImprovements();
 			
-		function productAccessoryChoice() {
 //This function improves the Accessory Choice Selection on Product Pages
+		function productAccessoryChoice() {
 			var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
 			productAccessoryChoiceExistance.parents().eq(2).addClass('accessoryOptionsSelection');
 			if (productAccessoryChoiceExistance.length) {
@@ -175,6 +175,7 @@
 					var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
 					var optionImageContainerSpan = $(this).parent();
 					var optionImageUrl = optionImage.attr('src');
+					//  height: 125px !important;
 					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 98% !important; height: 125px !important;'});
 					var optionPreview = $(this).parents().eq(1).find('.previewContent');
 					optionPreview.remove();
@@ -193,6 +194,19 @@
 	                    $(this).attr({style: 'border: 5px solid #39b54a !important'});
 	                }
 	            });
+				// Find the width of all list items and set their ul to this width
+				function optionsUlSetter() {
+//					var optionChoiceUlWidth = 0;
+//					optionThumbnails.parents('.swatchTexture').each(function() {
+//					    optionChoiceUlWidth = optionChoiceUlWidth + $(this).width();
+//					});
+					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
+					console.log(optionChoiceUl);
+					var optionChoiceUlWidth = optionThumbnails.parents('.productOptionPickListSwatch').width() - 20;
+					console.log(optionChoiceUlWidth);
+					optionChoiceUl.css('width', optionChoiceUlWidth);
+				};
+				optionsUlSetter();
 				// Find the tallest .name span and set the others to same height
 				function optionNameSpanHeightSetter() {
 		            var highestOptionNameSpan = null;
@@ -213,6 +227,7 @@
 				optionNameSpanHeightSetter();
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
+					optionsUlSetter();
 				});
 			}
 		};
