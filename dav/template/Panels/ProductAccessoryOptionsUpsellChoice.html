@@ -28,6 +28,7 @@
 				max-width: 100%;\
 				margin: 0 auto;\
 				display: block;\
+				width: 98% !important;\
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {\
 				margin-right:1% !important;\
@@ -236,18 +237,34 @@
 					'font-weight' : '700',
 				});
 				var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
+				optionThumbUrlObject = {};				
 				optionThumbnails.each(function() {
+					var optionName = $(this).parent().parent().find('.name').text();
 					var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
-					var optionImageContainerSpan = $(this).parent();
 					var optionImageUrl = optionImage.attr('src');
-					//  height: 125px !important;
-					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 98% !important;'});
-					thumbWidth = $(this).width();
-					thumbHeight = thumbWidth * 1.25;
-					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); width: 98% !important; height: ' + thumbHeight + 'px !important;'})
-					var optionPreview = $(this).parents().eq(1).find('.previewContent');
-					optionPreview.remove();
-				})
+					var thumbWidth = $(this).width();
+					var thumbHeight = thumbWidth * 1.25;
+					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); height: ' + thumbHeight + 'px !important;'});
+					optionThumbUrlObject[optionName] = optionImageUrl;
+					//optionThumbUrlObject.push ({
+					//	name: $(this).parent().parent().find('.name').text(),
+					//	value: optionImageUrl,
+					//});
+					console.log(optionThumbUrlObject);
+					//var optionPreview = $(this).parents().eq(1).find('.previewContent');
+					//optionPreview.remove();
+				});
+				function thumbHeightSetter() {
+						var optionName = $(this).parent().parent().find('.name').text();
+						var thumbWidth = $(this).width();
+						var thumbHeight = thumbWidth * 1.25;
+						$(this).attr({style: 'background-image: url("' + optionThumbUrlObject[optionName] + '"); height: ' + thumbHeight + 'px !important;'});
+						console.log('thumb height setter fired!');
+				};
+				thumbHeightSetter();
+				// Remove preview popup boxes from product accessory choice after the image URL are retrieved and stored
+				var optionPreview = $('.accessoryOptionsSelection .previewContent');
+				optionPreview.remove();
 				var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture');
 	            optionListItem.on({
 	                mouseenter: function(event) {
@@ -269,9 +286,9 @@
 //					    optionChoiceUlWidth = optionChoiceUlWidth + $(this).width();
 //					});
 					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
-					console.log(optionChoiceUl);
+					//console.log(optionChoiceUl);
 					var optionChoiceUlWidth = optionThumbnails.parents('.productOptionPickListSwatch').width() - 20;
-					console.log(optionChoiceUlWidth);
+					//console.log(optionChoiceUlWidth);
 					optionChoiceUl.css('width', optionChoiceUlWidth);
 				};
 				optionsUlSetter();
@@ -296,6 +313,7 @@
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
 					optionsUlSetter();
+					thumbHeightSetter();
 				});
 			}
 		};
