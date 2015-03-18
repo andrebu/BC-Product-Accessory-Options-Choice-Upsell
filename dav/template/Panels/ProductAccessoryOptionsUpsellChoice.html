@@ -255,11 +255,14 @@
 					//optionPreview.remove();
 				});
 				function thumbHeightSetter() {
+				optionThumbnails.each(function() {
 						var optionName = $(this).parent().parent().find('.name').text();
 						var thumbWidth = $(this).width();
 						var thumbHeight = thumbWidth * 1.25;
 						$(this).attr({style: 'background-image: url("' + optionThumbUrlObject[optionName] + '"); height: ' + thumbHeight + 'px !important;'});
-						console.log('thumb height setter fired!');
+						console.log(this);
+						console.log('thumb height setter fired!', thumbWidth, thumbHeight);
+				});
 				};
 				thumbHeightSetter();
 				// Remove preview popup boxes from product accessory choice after the image URL are retrieved and stored
