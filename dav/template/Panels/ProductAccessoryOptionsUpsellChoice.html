@@ -48,14 +48,6 @@
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .preview {\
 				display: none;\
 			}\
-			@media screen and (max-width: 767px) {\
-				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
-					margin-right:4% !important;\
-				}\
-				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
-					margin-right:4% !important;\
-				}\
-			}\
 			.productColorChoiceSelection .productOptionPickListSwatch li.swatch .swatchOneColour,\
 			.productColorChoiceSelection .productOptionPickListSwatch li.swatch .textureContainer,\
 			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label {\
@@ -84,6 +76,54 @@
 				display: inline-block;\
 				position: absolute;\
 				right: 0;\
+			}\
+			.addto {\
+				display: inline-block;\
+				vertical-align: middle;\
+				margin: 0;\
+				padding: 0;\
+				border: 0;\
+			}\
+			.DetailRow.InventoryLevel {\
+				display: inline-block;\
+				vertical-align: middle;\
+				margin: 0;\
+				width: 76%;\
+				float: right;\
+			}\
+			.OutOfStockMessage #InStockNotifyOutOfStock {\
+				font-size: 12px;\
+				font-weight: normal;\
+			}\
+			.OutOfStockMessage #InStockNotifyEmailAddress {\
+				color: #666666 !important;\
+				background: #f8f8f8;\
+			}\
+			.OutOfStockMessage #InStockNotifyClick {\
+				text-shadow: none;\
+				box-shadow: none;\
+				font-family: Questrial;\
+				font-weight: normal;\
+				position: relative;\
+				-webkit-box-sizing: border-box;\
+				-moz-box-sizing: border-box;\
+				box-sizing: border-box;\
+				border: 2px solid #39b54a;\
+				-webkit-transition: all 0.3s;\
+				-moz-transition: all 0.3s;\
+				transition: all 0.3s;\
+			}\
+			.OutOfStockMessage #InStockNotifyClick:hover {\
+				background-color: #fff;\
+				color: #39b54a;\
+			}\
+			@media screen and (max-width: 767px) {\
+				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
+					margin-right:4% !important;\
+				}\
+				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
+					margin-right:4% !important;\
+				}\
 			}\
 			</style>')
         .appendTo('head');
@@ -321,6 +361,13 @@
 					optionNameSpan.css('height', highestSpan);
 				};
 				optionNameSpanHeightSetter();
+				// Sold Out Products edits
+				function soldOutProducts() {
+					var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
+					var quantitySelectorBox = $('.DetailRow.qty .addto');
+					soldOutButton.insertAfter(quantitySelectorBox);
+				};
+				soldOutProducts();
 				// Call all the resizing functions upon window resize
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
