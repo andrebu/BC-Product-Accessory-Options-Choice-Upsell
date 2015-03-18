@@ -1,6 +1,9 @@
 <script type="text/javascript">
     $('<style type="text/css">\
-			/* Product Accessory Options Upsell Choice */\
+			/* Product Page Overhaul and Options Upsell Choice */\
+			.PrimaryProductDetails .ProductMain {\
+				padding: 0 0 0 37px;\
+			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch ul {\
 				margin: 0 auto;\
 				font-size: 0;\
@@ -99,15 +102,18 @@
 				float: right;\
 				flex-grow: 1;\
 			}\
-			.OutOfStockMessage #InStockNotifyOutOfStock {\
+			.OutOfStockMessage #InStockNotifyInline {\
+				margin-bottom: 10px;\
+			}\
+			.OutOfStockMessage #InStockNotifyInline #InStockNotifyOutOfStock {\
 				font-size: 12px;\
 				font-weight: normal;\
 			}\
-			.OutOfStockMessage #InStockNotifyEmailAddress {\
+			.OutOfStockMessage #InStockNotifyInline #InStockNotifyEmailAddress {\
 				color: #666666 !important;\
 				background: #f8f8f8;\
 			}\
-			.OutOfStockMessage #InStockNotifyClick {\
+			.OutOfStockMessage #InStockNotifyInline #InStockNotifyClick {\
 				text-shadow: none;\
 				box-shadow: none;\
 				font-family: Questrial;\
@@ -120,10 +126,14 @@
 				-webkit-transition: all 0.3s;\
 				-moz-transition: all 0.3s;\
 				transition: all 0.3s;\
+				margin: 0;\
 			}\
-			.OutOfStockMessage #InStockNotifyClick:hover {\
+			.OutOfStockMessage #InStockNotifyInline #InStockNotifyClick:hover {\
 				background-color: #fff;\
 				color: #39b54a;\
+			}\
+			#SideProductAddToWishList {\
+				margin-bottom: 10px;\
 			}\
 			@media screen and (max-width: 767px) {\
 				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
@@ -371,6 +381,9 @@
 				optionNameSpanHeightSetter();
 				// Sold Out Products edits
 				function soldOutProducts() {
+					if ($('.VariationProductInventory:contains("Sold out!")').length) {
+						$('.shareSlide').hide();
+					}
 					var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
 					var quantitySelectorBox = $('.DetailRow.qty .addto');
 					soldOutButton.insertAfter(quantitySelectorBox);
