@@ -82,19 +82,36 @@
 				position: absolute;\
 				right: 0;\
 			}\
-			.DetailRow.qty {\
+			#ProductDetails .ProductMain .DetailRow.qty {\
 				display: flex;\
 				flex-direction: row;\
 			}\
-			.addto {\
+			#ProductDetails .ProductMain .DetailRow.qty .addto {\
 				display: inline-block;\
+				display: flex;\
 				vertical-align: middle;\
 				margin: 0;\
 				padding: 0;\
 				border: 0;\
 				flex-grow: 1;\
 			}\
-			.DetailRow.InventoryLevel {\
+			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer {\
+				display: flex;\
+				flex-direction: column;\
+			}\
+			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .Value.AddCartButton {\
+				flex-grow: 1;\
+			}\
+			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .qtyInput.quantityInput {\
+				width: 100%;\
+			}\
+			#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount {\
+				flex-grow: 1;\
+			}\
+			#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount input {\
+				margin: 0;\
+			}\
+			#ProductDetails .ProductMain .DetailRow.InventoryLevel {\
 				display: inline-block;\
 				vertical-align: middle;\
 				margin: 0;\
@@ -102,18 +119,18 @@
 				float: right;\
 				flex-grow: 1;\
 			}\
-			.OutOfStockMessage #InStockNotifyInline {\
+			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline {\
 				margin-bottom: 10px;\
 			}\
-			.OutOfStockMessage #InStockNotifyInline #InStockNotifyOutOfStock {\
+			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyOutOfStock {\
 				font-size: 12px;\
 				font-weight: normal;\
 			}\
-			.OutOfStockMessage #InStockNotifyInline #InStockNotifyEmailAddress {\
+			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyEmailAddress {\
 				color: #666666 !important;\
 				background: #f8f8f8;\
 			}\
-			.OutOfStockMessage #InStockNotifyInline #InStockNotifyClick {\
+			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick {\
 				text-shadow: none;\
 				box-shadow: none;\
 				font-family: Questrial;\
@@ -128,11 +145,11 @@
 				transition: all 0.3s;\
 				margin: 0;\
 			}\
-			.OutOfStockMessage #InStockNotifyInline #InStockNotifyClick:hover {\
+			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick:hover {\
 				background-color: #fff;\
 				color: #39b54a;\
 			}\
-			#SideProductAddToWishList {\
+			#ProductDetails .ProductMain #SideProductAddToWishList {\
 				margin-bottom: 10px;\
 			}\
 			@media screen and (max-width: 767px) {\
@@ -354,6 +371,7 @@
 	                    $(this).attr({style: 'border: 5px solid #39b54a !important'});
 	                }
 	            });
+					console.log('What?');
 				// Find the width of all list items and set their ul to this width
 				function optionsUlWidthSetter() {
 					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
@@ -380,15 +398,6 @@
 				};
 				optionNameSpanHeightSetter();
 				// Sold Out Products edits
-				function soldOutProducts() {
-					if ($('.VariationProductInventory:contains("Sold out!")').length) {
-						$('.shareSlide').hide();
-					}
-					var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
-					var quantitySelectorBox = $('.DetailRow.qty .addto');
-					soldOutButton.insertAfter(quantitySelectorBox);
-				};
-				soldOutProducts();
 				// Call all the resizing functions upon window resize
 				$( window ).bind("resize", function(){
 					optionNameSpanHeightSetter();
@@ -398,6 +407,15 @@
 			}
 		};
 		productAccessoryChoice();
+		function soldOutProducts() {
+			if ($('.VariationProductInventory:contains("Sold out!")').length) {
+				$('.shareSlide').hide();
+			};
+			var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
+			var quantitySelectorBox = $('.DetailRow.qty .addto');
+			soldOutButton.insertAfter(quantitySelectorBox);
+		};
+		soldOutProducts();
 	};
 
 	$(document).ready(function() {
