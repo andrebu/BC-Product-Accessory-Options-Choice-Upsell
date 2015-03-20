@@ -273,7 +273,6 @@
 			var ulSizeSelectionWidth = 0;
 			sizeSelectionListItems.each(function() {
 			    ulSizeSelectionWidth = ulSizeSelectionWidth + $(this).width()
-			    console.log(ulSizeSelectionWidth);
 			});
 			sizeSelectionListItems.parent().css({
 				'width' : (ulSizeSelectionWidth + 14),
@@ -371,7 +370,6 @@
 	                    $(this).attr({style: 'border: 5px solid #39b54a !important'});
 	                }
 	            });
-					console.log('What?');
 				// Find the width of all list items and set their ul to this width
 				function optionsUlWidthSetter() {
 					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
