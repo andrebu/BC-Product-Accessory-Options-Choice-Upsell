@@ -39,6 +39,7 @@ To get this to work, you just need to require the module once per run-time, like
 ##To Do
 
 1. ~~Fix mobile responsiveness issue on 13' screens (overhaul BC template CSS)~~
+2. Translate the other options (size and color) to flex, and move the border to the list item
 
 
 ##Resources
@@ -57,6 +58,7 @@ To get this to work, you just need to require the module once per run-time, like
 - [How can one create an overlay in css?](http://stackoverflow.com/questions/9724035/how-can-one-create-an-overlay-in-css)
 - [JavaScript moving element in the DOM](http://stackoverflow.com/questions/1363650/javascript-moving-element-in-the-dom)
 - [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
+- [Flexbox in Safari: Grow and shrink](http://stackoverflow.com/questions/16130399/flexbox-in-safari-grow-and-shrink)
 
 
 ## Other BigCommerce modules that I've made
