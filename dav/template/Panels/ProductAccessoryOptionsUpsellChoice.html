@@ -54,22 +54,35 @@
 				display: none;\
 			}\
 			.productChooseStyle .productOptionViewRectangle li.option label,\
-			.productColorSelection .productOptionPickListSwatch li.swatch .swatchOneColour,\
-			.productColorSelection .productOptionPickListSwatch li.swatch .textureContainer,\
 			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label {\
+				padding: 5px 10px !important;\
+			}\
+			.productColorSelection .productOptionPickListSwatch li.swatch .swatchColours,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label,\
+			.productChooseStyle .productOptionViewRectangle li.option label {\
+				border: 0 !important;\
+				margin: 0 !important;\
+				width: auto;\
+			}\
+			.productChooseStyle .productOptionViewRectangle li.option,\
+			.productColorSelection .productOptionPickListSwatch li.swatch,\
+			.productColorSelection .productOptionPickListSwatch li.swatch,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option {\
+				box-sizing: border-box;\
 				border: 4px solid #eee !important;\
 				border-radius: 3px;\
+				display: inline-flex;\
 			}\
-			.productChooseStyle .productOptionViewRectangle li.option:hover label,\
-			.productColorSelection .productOptionPickListSwatch li.swatch:hover .swatchOneColour,\
-			.productColorSelection .productOptionPickListSwatch li.swatch:hover .textureContainer,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option:hover label {\
+			.productChooseStyle .productOptionViewRectangle li.option:hover,\
+			.productColorSelection .productOptionPickListSwatch li.swatch:hover,\
+			.productColorSelection .productOptionPickListSwatch li.swatch:hover,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option:hover {\
 				border: 4px solid #484848 !important;\
 			}\
-			.productChooseStyle .productOptionViewRectangle li.option.selectedValue label,\
-			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue .swatchOneColour,\
-			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue .textureContainer,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option.selectedValue label {\
+			.productChooseStyle .productOptionViewRectangle li.option.selectedValue,\
+			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue,\
+			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue ,\
+			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option.selectedValue {\
 				border: 4px solid #39B54A !important;\
 			}\
 			/* HTML changes were made on Panels/ProductDetails.html */\
@@ -281,6 +294,15 @@
 			var mainChooseStyleContainer = chooseStylenName.parents().eq(2);
 			mainChooseStyleContainer.addClass('productChooseStyle');
 			$('.productChooseStyle').find('.required').hide();
+			var styleChoiceListItems = mainChooseStyleContainer.find('.productOptionViewRectangle li.option');
+			var ulStyleChoiceWidth = 0;
+			styleChoiceListItems.each(function() {
+			    ulStyleChoiceWidth = ulStyleChoiceWidth + $(this).width()
+			});
+			styleChoiceListItems.parent().css({
+				'width' : (ulStyleChoiceWidth + 42),
+				'margin' : '0 auto',
+			});
 		};
 		productPageChooseStyle();
 
@@ -304,38 +326,7 @@
 		};
 		productPageChooseOptions();
 		
-//This function improves the Color or Size Options selection on Product Pages
-		function productPageSizeSelectionImprovements() {
-			var productSizeSelectionName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Joint Size")');
-			productSizeSelectionName.css({
-				'font-family' : 'tahoma',
-				'font-size' : '14px',
-				'font-weight' : '700',
-				'text-transform' : 'uppercase',
-				'color' : '#39b54a',
-			});
-			productSizeSelectionName.parent().css({
-				'text-align' : 'center',
-				'padding' : '0',
-			});
-			var mainSizeContainer = productSizeSelectionName.parents().eq(2);
-			mainSizeContainer.addClass('productSizeSelection');
-			$('.productSizeSelection').find('.required').hide();
-			var sizeSelectionListItems = mainSizeContainer.find('.productOptionViewRectangle li.option');
-			//sizeSelectionListItems.find('label').css('margin-bottom', '0');
-			sizeSelectionListItems.find('label').attr({style: 'margin-bottom: 0 !important;'});
-			var ulSizeSelectionWidth = 0;
-			sizeSelectionListItems.each(function() {
-			    ulSizeSelectionWidth = ulSizeSelectionWidth + $(this).width()
-			});
-			sizeSelectionListItems.parent().css({
-				'width' : (ulSizeSelectionWidth + 14),
-				'margin' : '0 auto',
-			});
-		};
-		productPageSizeSelectionImprovements();
-		
-//This function improves the Color or Size Options selection on Product Pages
+//This function improves the Color Options selection on Product Pages
 		function productPageColorSwatchImprovements() {
 			var productColorChoiceName = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Color:")');
 			productColorChoiceName.css({
@@ -365,12 +356,43 @@
 */
 
 			colorChoiceListItems.parent().css({
-				'width' : (ulColorChoiceWidth + 14),
+				'width' : (ulColorChoiceWidth + 17),
 				'margin' : '0 auto',
 			});
 		};
 		productPageColorSwatchImprovements();
 			
+//This function improves the Size Options selection on Product Pages
+		function productPageSizeSelectionImprovements() {
+			var productSizeSelectionName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Joint Size")');
+			productSizeSelectionName.css({
+				'font-family' : 'tahoma',
+				'font-size' : '14px',
+				'font-weight' : '700',
+				'text-transform' : 'uppercase',
+				'color' : '#39b54a',
+			});
+			productSizeSelectionName.parent().css({
+				'text-align' : 'center',
+				'padding' : '0',
+			});
+			var mainSizeContainer = productSizeSelectionName.parents().eq(2);
+			mainSizeContainer.addClass('productSizeSelection');
+			$('.productSizeSelection').find('.required').hide();
+			var sizeSelectionListItems = mainSizeContainer.find('.productOptionViewRectangle li.option');
+			//sizeSelectionListItems.find('label').css('margin-bottom', '0');
+			sizeSelectionListItems.find('label').attr({style: 'margin-bottom: 0 !important;'});
+			var ulSizeSelectionWidth = 0;
+			sizeSelectionListItems.each(function() {
+			    ulSizeSelectionWidth = ulSizeSelectionWidth + $(this).width()
+			});
+			sizeSelectionListItems.parent().css({
+				'width' : (ulSizeSelectionWidth + 21),
+				'margin' : '0 auto',
+			});
+		};
+		productPageSizeSelectionImprovements();
+		
 //This function improves the Accessory Choice Selection on Product Pages
 		function productAccessoryChoice() {
 			var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
