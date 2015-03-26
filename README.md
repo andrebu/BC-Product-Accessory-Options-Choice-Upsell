@@ -2,6 +2,9 @@
 BigCommerce Product Accessory Options Choice Upsell
 
 
+------------------------------------------------------------------------------------
+
+
 ## Installation
 
 > These are the latest instructions and are up to date.  I will update them as the widget is improved.
@@ -28,6 +31,8 @@ BigCommerce Product Accessory Options Choice Upsell
 ![BigCommerce Product Accessory Options Choice Upsell Installation Example](https://raw.githubusercontent.com/iamandrebulatov/BC-Product-Accessory-Options-Choice-Upsell/master/BC-Product-Accessory-Options-Choice-Upsell.png "BigCommerce Product Accessory Options Choice Upsell Installation Example")
 
 
+------------------------------------------------------------------------------------
+
 
 ## Using
 
@@ -36,10 +41,16 @@ To get this to work, you just need to require the module once per run-time, like
     1. Just install and it'll do the work for you!  
 
 
+------------------------------------------------------------------------------------
+
+
 ##To Do
 
 1. ~~Fix mobile responsiveness issue on 13' screens (overhaul BC template CSS)~~
 2. Translate the other options (size and color) to flex, and move the border to the list item
+
+
+------------------------------------------------------------------------------------
 
 
 ##Resources
@@ -59,6 +70,9 @@ To get this to work, you just need to require the module once per run-time, like
 - [JavaScript moving element in the DOM](http://stackoverflow.com/questions/1363650/javascript-moving-element-in-the-dom)
 - [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
 - [Flexbox in Safari: Grow and shrink](http://stackoverflow.com/questions/16130399/flexbox-in-safari-grow-and-shrink)
+
+
+------------------------------------------------------------------------------------
 
 
 ## Other BigCommerce modules that I've made
@@ -83,6 +97,8 @@ To get this to work, you just need to require the module once per run-time, like
 * [BigCommerce Navigation Dynamic List Item Visual Cues](https://github.com/iamandrebulatov/BC-Nav-Dynamic-List-Item-Visual-Cues)
 
 
+------------------------------------------------------------------------------------
+
 
 ## Support
 
@@ -92,6 +108,9 @@ The absolute best thing to do is to sign up with [ChangeTip](//changetip.com) or
 
 [![ChangeTip donate button](http://andrebulatov.com/wp-content/uploads/tipme_button.png)](//www.changetip.com/tipme/andre.bulatov/ "Donate once-off to this project using ChangeTip")
 [![GratiPay donate button](http://andrebulatov.com/wp-content/uploads/gratipay-button.png)](//www.gratipay.com/andrebulatov/ "Donate once-off to this project using GratiPay")
+
+
+------------------------------------------------------------------------------------
 
 
 ## License
