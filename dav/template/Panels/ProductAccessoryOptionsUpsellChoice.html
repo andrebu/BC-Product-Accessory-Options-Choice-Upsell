@@ -57,7 +57,13 @@
 			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label {\
 				padding: 5px 10px !important;\
 			}\
+			.productColorSelection .productOptionPickListSwatch ul {\
+				display: table;\
+				width: auto;\
+				margin: 0 auto;\
+			}\
 			.productColorSelection .productOptionPickListSwatch li.swatch .swatchColours,\
+			.productColorSelection .productOptionPickListSwatch li.swatch .textureContainer,\
 			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label,\
 			.productChooseStyle .productOptionViewRectangle li.option label {\
 				border: 0 !important;\
@@ -125,7 +131,7 @@
 				padding: 0;\
 				border: 0;\
 				flex-grow: 1;\
-				width: 100%;\
+				/*width: 100%;*/\
 			}\
 			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer {\
 				display: -webkit-box;\
@@ -157,7 +163,7 @@
 			#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount input {\
 				margin: 0;\
 			}\
-			#ProductDetails .ProductMain .DetailRow.InventoryLevel {\
+			#ProductDetails .ProductMain .qty .DetailRow.InventoryLevel {\
 				display: inline-block;\
 				vertical-align: middle;\
 				margin: 0;\
@@ -345,20 +351,22 @@
 			$('.productColorSelection').find('.required').hide();
 			var colorChoiceListItems = mainColorChoiceContainer.find('.productOptionPickListSwatch li.swatch');
 			colorChoiceListItems.find('label').css('margin-bottom', '0');
+/*
 			var ulColorChoiceWidth = 0;
 			colorChoiceListItems.each(function() {
 			    ulColorChoiceWidth = ulColorChoiceWidth + $(this).width()
 			});
-
+*/
 /*
 			var optionPreview = $(this).parents().eq(1).find('.previewContent');
 			optionPreview.remove();
 */
-
+/*
 			colorChoiceListItems.parent().css({
 				'width' : (ulColorChoiceWidth + 17),
 				'margin' : '0 auto',
 			});
+*/
 		};
 		productPageColorSwatchImprovements();
 			
