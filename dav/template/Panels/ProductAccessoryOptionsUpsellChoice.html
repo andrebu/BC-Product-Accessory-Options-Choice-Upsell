@@ -171,6 +171,9 @@
 				float: right;\
 				flex-grow: 1;\
 			}\
+			#ProductDetails .ProductMain .qty .DetailRow.InventoryLevel .Label {\
+				display: none;\
+			}\
 			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline {\
 				margin-bottom: 10px;\
 			}\
@@ -283,7 +286,7 @@
 
 	function producPageImprovements() {
 		
-		//This function improves the Color or Size Style selection on Product Pages
+//This function improves the Color or Size Style selection on Product Pages
 		function productPageChooseStyle() {
 			var chooseStylenName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Choose Style")');
 			chooseStylenName.css({
