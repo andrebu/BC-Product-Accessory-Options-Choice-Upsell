@@ -1,9 +1,6 @@
 <script type="text/javascript">
     $('<style type="text/css">\
 			/* Product Page Overhaul and Options Upsell Choice */\
-			//.PrimaryProductDetails .ProductMain {\
-			//	padding: 0 0 0 37px;\
-			//}\
 			.accessoryOptionsSelection .productOptionPickListSwatch ul {\
 				margin: 0 auto;\
 				font-size: 0;\
@@ -81,7 +78,6 @@
 				box-sizing: border-box;\
 				border: 4px solid #eee !important;\
 				border-radius: 3px;\
-				display: inline-flex;\
 			}\
 			.productColorSelection .productOptionPickListSwatch li.swatch + li.swatch {\
 				margin-left: 3px;\
@@ -331,7 +327,7 @@
 			var styleChoiceListItems = mainChooseStyleContainer.find('.productOptionViewRectangle li.option');
 			var ulStyleChoiceWidth = 0;
 			styleChoiceListItems.each(function() {
-			    ulStyleChoiceWidth = ulStyleChoiceWidth + $(this).width()
+			    ulStyleChoiceWidth = ulStyleChoiceWidth + $(this).width() + 2
 			});
 			styleChoiceListItems.parent().css({
 				'width' : (ulStyleChoiceWidth + 42),
