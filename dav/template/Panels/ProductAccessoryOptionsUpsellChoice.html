@@ -530,39 +530,25 @@
 		soldOutProducts();
 	};
 
+			$(document).on('change', '.VariationProductInventory', function() {
+				console.log('change triggered!');
+			    if ($('.DetailRow.qty').is(":visible")) {
+				    $('.VariationProductInventory').parents('.InventoryLevel').hide() 
+				} else {
+					$('.VariationProductInventory').parents('.InventoryLevel').show();
+				}
+			})
 	$(document).ready(function() {
-		producPageImprovements();
-		console.log($('.VariationProductInventory').text());
-		$('.VariationProductInventory').on('change', function(){
-			console.log($('.VariationProductInventory').text());
+		$('.VariationProductInventory').bind("DOMSubtreeModified",function(){
+			console.log('change triggered!');
 		});
-		if ($('.VariationProductInventory').text() == 'Sold out!') {
-			console.log('SOLD OUTTTTTTTT!?');
-			$('.VariationProductInventory').parents('.InventoryLevel').show();
-		} else {
-			console.log('NOT sold out!');
-			$('.VariationProductInventory').parents('.InventoryLevel').hide();
-		}
-	$(function () // when DOM is ready for manipulation, do:
-	{
-	    if ($('.DetailRow.qty').text() != 'Sold out!') $('.VariationProductInventory').hide();
-	    // for each of the p-elements in the DOM (add your own context or class-scope
-	    // or whatever you can do to narrow down the list of elements here):
-	    $('.VariationProductInventory').each(function () 
-	    {
-	        // cache the element (always a good idea when doing multiple operations
-	        // on the same entity):
-	        var that = $(this);
-	
-	        // if the text of the element is "{{Title}}" then hide the element:
-	        if (that.text() != "Sold out!") that.hide();
-	
-	        // alternatively you can do:
-	
-	        // if the the characters "{{" exists at any position in the text of the
-	        // element, hide it:
-	        //if (that.text().indexOf("{{") > -1) that.hide();
-	    });
-	});
+		producPageImprovements();
+		//$('.DetailRow.qty').on('change', function() {
+		    if ($('.DetailRow.qty').is(":visible")) {
+			    $('.VariationProductInventory').parents('.InventoryLevel').hide() 
+			} else {
+				$('.VariationProductInventory').parents('.InventoryLevel').show();
+			}
+		//});
 	});
 </script>
