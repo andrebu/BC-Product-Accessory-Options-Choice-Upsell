@@ -526,29 +526,18 @@
 			var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
 			var quantitySelectorBox = $('.DetailRow.qty .addto');
 			soldOutButton.insertAfter(quantitySelectorBox);
-		};
-		soldOutProducts();
-	};
-
-			$(document).on('change', '.VariationProductInventory', function() {
-				console.log('change triggered!');
+			$('.VariationProductInventory').bind("DOMSubtreeModified",function(e){
 			    if ($('.DetailRow.qty').is(":visible")) {
 				    $('.VariationProductInventory').parents('.InventoryLevel').hide() 
 				} else {
 					$('.VariationProductInventory').parents('.InventoryLevel').show();
 				}
-			})
+			});			
+		};
+		soldOutProducts();
+	};
+
 	$(document).ready(function() {
-		$('.VariationProductInventory').bind("DOMSubtreeModified",function(){
-			console.log('change triggered!');
-		});
 		producPageImprovements();
-		//$('.DetailRow.qty').on('change', function() {
-		    if ($('.DetailRow.qty').is(":visible")) {
-			    $('.VariationProductInventory').parents('.InventoryLevel').hide() 
-			} else {
-				$('.VariationProductInventory').parents('.InventoryLevel').show();
-			}
-		//});
 	});
 </script>
