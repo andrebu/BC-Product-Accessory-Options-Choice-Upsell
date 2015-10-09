@@ -523,26 +523,8 @@
 			var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
 			var quantitySelectorBox = $('.DetailRow.qty .addto');
 			soldOutButton.insertAfter(quantitySelectorBox);
-			
-/*
-			function hideLowInv() {
-			    if ( $('.OutOfStockMessage').is(":visible") && $('.VariationProductInventory').text().trim() == 'Sold out!' ) {
-				    console.log('sold out');
-					$('.VariationProductInventory').parents('.InventoryLevel').show();
-					$('.addto, .shareSlide').hide();
-				} else {
-				    console.log('NOT sold out and inventory is hidden');
-				    $('.VariationProductInventory').parents('.InventoryLevel').hide() 
-					$('.addto, .shareSlide').show();
-				}
-			}
-			hideLowInv();
-			$('.OutOfStockMessage').on('DOMSubtreeModified',function(e){
-				hideLowInv();
-			});			
-*/
 			function hideLowInvAndShare() {
-				if (($('.VariationProductInventory').text().trim() != 'Sold out!') && ($('.VariationProductInventory').text().trim() != '')) {
+				if ((!$('.VariationProductInventory:contains("Sold out!")')) && ($('.VariationProductInventory').text().trim() != '')) {
 					$('.VariationProductInventory').parents('.InventoryLevel').hide();
 					$('.shareSlide').show();
 				} else if ($('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
