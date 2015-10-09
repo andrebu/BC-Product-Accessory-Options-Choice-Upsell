@@ -53,28 +53,6 @@ To get this to work, you just need to require the module once per run-time, like
 ------------------------------------------------------------------------------------
 
 
-##Resources
-
-- [How to apply !important using .css()?](http://stackoverflow.com/questions/2655925/how-to-apply-important-using-css)
-- [jQuery selector value escaping](http://stackoverflow.com/questions/739695/jquery-selector-value-escaping)
-- [CSS3 :nth-of-type() Selector](http://www.w3schools.com/cssref/sel_nth-of-type.asp)
-- [Get ul width with floating li's using jQuery/JavaScript](http://stackoverflow.com/questions/13066054/get-ul-width-with-floating-lis-using-jquery-javascript)
-- [How to Populate jQuery Object with Data from Link Inside HTML List?](http://stackoverflow.com/questions/4511255/how-to-populate-jquery-object-with-data-from-link-inside-html-list)
-- [jQuery Types():Object()](http://api.jquery.com/Types/#Object)
-- [A Space between Inline-Block List Items [duplicate]](ttp://stackoverflow.com/questions/5256533/a-space-between-inline-block-list-items)
-- [when window is resized --- Change div width live with jQuery](http://stackoverflow.com/questions/8153281/change-div-width-live-with-jquery)
-- [jQuery .width()](http://api.jquery.com/width/)
-- [jQuery - widest item on page](http://stackoverflow.com/questions/1233343/jquery-widest-item-on-page)
-- [flex and CSS calc() -- Responsive, Fluid-Width, Variable-Item Navigation with CSS](http://www.sitepoint.com/responsive-fluid-width-variable-item-navigation-css/)
-- [How can one create an overlay in css?](http://stackoverflow.com/questions/9724035/how-can-one-create-an-overlay-in-css)
-- [JavaScript moving element in the DOM](http://stackoverflow.com/questions/1363650/javascript-moving-element-in-the-dom)
-- [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
-- [Flexbox in Safari: Grow and shrink](http://stackoverflow.com/questions/16130399/flexbox-in-safari-grow-and-shrink)
-
-
-------------------------------------------------------------------------------------
-
-
 ## Other BigCommerce modules that I've made
 
 * [BigCommerce Carousel Slider Slide Show Custom](https://github.com/iamandrebulatov/BC-Carousel-Slider-Slide-Show-Custom)
@@ -95,6 +73,44 @@ To get this to work, you just need to require the module once per run-time, like
 * [BigCommerce ThumbScroll](https://github.com/iamandrebulatov/BC-ThumbScroll)
 * [BigCommerce Product Accessory Options Choice Upsell](https://github.com/iamandrebulatov/BC-Product-Accessory-Options-Choice-Upsell)
 * [BigCommerce Navigation Dynamic List Item Visual Cues](https://github.com/iamandrebulatov/BC-Nav-Dynamic-List-Item-Visual-Cues)
+* [BigCommerce Contact Form](https://github.com/iamandrebulatov/BC-Contact-Form)
+* [BigCommerce Hot Item Product Counter](https://github.com/iamandrebulatov/BC-Hot-Item-Product-Counter)
+* [BigCommerce Shipping Time Dynamic Feature](https://github.com/iamandrebulatov/BC-Product-Shipping-Time-Dynamic)
+* [BigCommerce Category Page Sold Out Products Reorder](https://github.com/iamandrebulatov/BC-Category-Push-Sold-Out-Products-to-Bottom)
+* [BigCommerce Wholesale Price and Item Hide and Other Features](https://github.com/iamandrebulatov/BC-Wholesale-Price-and-Item-Hide)
+* [BigCommerce Sharing Savings Discount](https://github.com/iamandrebulatov/BC-Sharing-Savings-Discount)
+* [BigCommerce Tooltips](https://github.com/iamandrebulatov/BC-Tooltips)
+* [BigCommerce Order Shipment Tracking APIs ofr USPS, UPS and FedEx](https://github.com/iamandrebulatov/BC-Order-Shipping-Tracking)
+* [BigCommerce Pagination and Infinite Scroll](https://github.com/iamandrebulatov/BC-Category-Pagination)
+* [BigCommerce Misc Projects](https://github.com/iamandrebulatov/BigCommerce-Projects) 
+  * Site Navigation AJAXification
+  * List of SEO enhancements and improvements
+  * Product Images Swipeable
+  * Contact Form Overhaul and AJAXification
+  * Cart Item Removal AJAXification
+
+
+------------------------------------------------------------------------------------
+
+
+##Resources
+
+- [How to apply !important using .css()?](http://stackoverflow.com/questions/2655925/how-to-apply-important-using-css)
+- [jQuery selector value escaping](http://stackoverflow.com/questions/739695/jquery-selector-value-escaping)
+- [CSS3 :nth-of-type() Selector](http://www.w3schools.com/cssref/sel_nth-of-type.asp)
+- [Get ul width with floating li's using jQuery/JavaScript](http://stackoverflow.com/questions/13066054/get-ul-width-with-floating-lis-using-jquery-javascript)
+- [How to Populate jQuery Object with Data from Link Inside HTML List?](http://stackoverflow.com/questions/4511255/how-to-populate-jquery-object-with-data-from-link-inside-html-list)
+- [jQuery Types():Object()](http://api.jquery.com/Types/#Object)
+- [A Space between Inline-Block List Items [duplicate]](ttp://stackoverflow.com/questions/5256533/a-space-between-inline-block-list-items)
+- [when window is resized --- Change div width live with jQuery](http://stackoverflow.com/questions/8153281/change-div-width-live-with-jquery)
+- [jQuery .width()](http://api.jquery.com/width/)
+- [jQuery - widest item on page](http://stackoverflow.com/questions/1233343/jquery-widest-item-on-page)
+- [flex and CSS calc() -- Responsive, Fluid-Width, Variable-Item Navigation with CSS](http://www.sitepoint.com/responsive-fluid-width-variable-item-navigation-css/)
+- [How can one create an overlay in css?](http://stackoverflow.com/questions/9724035/how-can-one-create-an-overlay-in-css)
+- [JavaScript moving element in the DOM](http://stackoverflow.com/questions/1363650/javascript-moving-element-in-the-dom)
+- [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
+- [Flexbox in Safari: Grow and shrink](http://stackoverflow.com/questions/16130399/flexbox-in-safari-grow-and-shrink)
+- [How do I test if a variable does not equal either of two values?](http://stackoverflow.com/questions/6115801/how-do-i-test-if-a-variable-does-not-equal-either-of-two-values)
 
 
 ------------------------------------------------------------------------------------
