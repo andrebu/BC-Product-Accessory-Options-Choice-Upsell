@@ -111,6 +111,8 @@ To get this to work, you just need to require the module once per run-time, like
 - [pointer-events - CSS | MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
 - [Flexbox in Safari: Grow and shrink](http://stackoverflow.com/questions/16130399/flexbox-in-safari-grow-and-shrink)
 - [How do I test if a variable does not equal either of two values?](http://stackoverflow.com/questions/6115801/how-do-i-test-if-a-variable-does-not-equal-either-of-two-values)
+- [DOM Spec: 4.3. Mutation observers](https://dom.spec.whatwg.org/#mutation-observers)
+- []()
 
 
 ------------------------------------------------------------------------------------
