@@ -1,9 +1,19 @@
 <script type="text/javascript">
     $('<style type="text/css">\
 			/* Product Page Overhaul and Options Upsell Choice */\
-			.accessoryOptionsSelection .productOptionPickListSwatch ul {\
-				margin: 0 auto;\
-				font-size: 0;\
+			.productAttributeRow .productAttributeLabel label {\
+				text-align: center;\
+				padding: 0px;\
+			}\
+			.productAttributeRow .productAttributeLabel .required {\
+				display: none;\
+			}\
+			.productAttributeRow .productAttributeLabel .name {\
+				font-family: tahoma;\
+				font-size: 14px;\
+				font-weight: 700;\
+				text-transform: uppercase;\
+				color: rgb(57, 181, 74);\
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture {\
 				vertical-align: middle;\
@@ -12,13 +22,20 @@
 				border-radius: 7px;\
 				width: 28%;\
 				width: calc(98% / 3);\
+				margin-left: 0;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture label {\
+			.productAttributeRow .productOptionPickListSwatch .swatchTexture.selectedValue {\
+				border-color: #39b54a !important;\
+			}\
+			.accessoryOptionsSelection.productAttributeRow .productOptionPickListSwatch .swatchTexture label {\
 				max-width: 100%;\
 				padding: 3px;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture.selectedValue {\
-				border-color: #39b54a !important;\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {\
+				margin-right:1% !important;\
+			}\
+			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) {\
+				margin-right:1% !important;\
 			}\
 			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer {\
 				max-width: 100%;\
@@ -32,13 +49,18 @@
 				display: block;\
 				width: 98% !important;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {\
-				margin-right:1% !important;\
+			.productAttributeRow .productOptionViewRectangle ul,\
+			.productAttributeRow .productOptionPickListSwatch ul {\
+				width: auto;\
+				margin: 0 auto;\
+				font-size: 0;\
+				text-align: center;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) {\
-				margin-right:1% !important;\
+			.productAttributeRow .productOptionPickListSwatch li + li,\
+			.productAttributeRow .productOptionViewRectangle li + li {\
+				margin-left: 3px;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {\
+			.productAttributeRow.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {\
 				display: block !important;\
 				max-width: 120px;\
 				font-size: 0.9vw;\
@@ -47,52 +69,45 @@
 				text-align: center;\
 				margin: 0 auto !important;\
 			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .preview {\
+			.productAttributeRow .productOptionPickListSwatch .swatchTexture .preview {\
 				display: none;\
 			}\
-			.productChooseStyle .productOptionViewRectangle li.option label,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label {\
+			.productAttributeRow .productOptionViewRectangle li.option label,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label {\
 				padding: 5px 10px !important;\
 			}\
-			.productColorSelection .productOptionPickListSwatch ul {\
-				display: table;\
-				width: auto;\
-				margin: 0 auto;\
-			}\
-			.productColorSelection .productOptionPickListSwatch li.swatch label,\
-			.productColorSelection .productOptionPickListSwatch li.swatch label {\
+			.productAttributeRow .productOptionPickListSwatch li.swatch label,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch label {\
 				line-height: 27px;\
 			}\
-			.productColorSelection .productOptionPickListSwatch li.swatch .swatchColours,\
-			.productColorSelection .productOptionPickListSwatch li.swatch .textureContainer,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option label,\
-			.productChooseStyle .productOptionViewRectangle li.option label {\
+			.productAttributeRow .productOptionPickListSwatch li.swatch .swatchColours,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch .textureContainer,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label,\
+			.productAttributeRow .productOptionViewRectangle li.option label {\
 				border: 0 !important;\
 				margin: 0 !important;\
 				width: auto;\
 			}\
-			.productChooseStyle .productOptionViewRectangle li.option,\
-			.productColorSelection .productOptionPickListSwatch li.swatch,\
-			.productColorSelection .productOptionPickListSwatch li.swatch,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option {\
+			.productAttributeRow .productOptionViewRectangle li.option,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option {\
 				box-sizing: border-box;\
-				border: 4px solid #eee !important;\
+				border: 3px solid #eee !important;\
 				border-radius: 3px;\
+				vertical-align: middle;\
 			}\
-			.productColorSelection .productOptionPickListSwatch li.swatch + li.swatch {\
-				margin-left: 3px;\
+			.productAttributeRow .productOptionViewRectangle li.option:hover,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch:hover,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch:hover,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option:hover {\
+				border: 3px solid #484848 !important;\
 			}\
-			.productChooseStyle .productOptionViewRectangle li.option:hover,\
-			.productColorSelection .productOptionPickListSwatch li.swatch:hover,\
-			.productColorSelection .productOptionPickListSwatch li.swatch:hover,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option:hover {\
-				border: 4px solid #484848 !important;\
-			}\
-			.productChooseStyle .productOptionViewRectangle li.option.selectedValue,\
-			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue,\
-			.productColorSelection .productOptionPickListSwatch li.swatch.selectedValue ,\
-			.productSizeSelection .productOptionViewRectangle .list-horizontal li.option.selectedValue {\
-				border: 4px solid #39B54A !important;\
+			.productAttributeRow .productOptionViewRectangle li.option.selectedValue,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue ,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option.selectedValue {\
+				border: 3px solid #39B54A !important;\
 			}\
 			.productOptionPickListSwatch .thumbnail,\
 			.productOptionPickListSwatch .swatchColour {\
@@ -474,14 +489,11 @@
 	            optionListItem.on({
 	                mouseenter: function(event) {
 	                    if (!$(this).hasClass('selectedValue')) {
-		                    $(this).attr({style: 'border: 5px solid #484848 !important'});
+		                    $(this).addClass('hovered');
 	                    }
 	                },
 	                mouseleave: function(event) {
-	                    $(this).attr({style: ''});
-	                },
-	                click: function(event) {
-	                    $(this).attr({style: 'border: 5px solid #39b54a !important'});
+		                    $(this).removeClass('hovered');
 	                }
 	            });
 				// Find the width of all list items and set their ul to this width
