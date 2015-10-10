@@ -541,12 +541,27 @@
 					$('.shareSlide').show();
 				} else if ($('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
 					$('.shareSlide').hide();
+				} else if (!$('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
+					$('.shareSlide').show();
 				}
 			}
 			hideLowInvAndShare();
-			$('.VariationProductInventory').on('DOMSubtreeModified',function(e){
-				hideLowInvAndShare();
-			});			
+			function invLevelObserver() {
+				// select the target node
+				var target = document.querySelector('.DetailRow.InventoryLevel');
+				// create an observer instance
+				var observer = new MutationObserver(function(mutations) {
+				    mutations.forEach(function(mutation) {
+				        //console.log(mutation.type);
+				        hideLowInvAndShare();
+				    });
+				});
+				// configuration of the observer:
+				var config = { attributes: true, childList: true, characterData: true, subtree: true }
+				// pass in the target node, as well as the observer options
+				observer.observe(target, config);
+			}
+			invLevelObserver();	
 		};
 		soldOutProducts();
 	};
