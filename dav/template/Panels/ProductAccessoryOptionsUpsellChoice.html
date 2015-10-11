@@ -72,13 +72,26 @@
 			.productAttributeRow .productOptionPickListSwatch .swatchTexture .preview {\
 				display: none;\
 			}\
+			.productAttributeRow .productOptionViewRectangle li.option,\
+			.productAttributeRow .productOptionPickListSwatch li.swatch,\
+			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option {\
+				box-sizing: border-box;\
+				border: 3px solid #eee !important;\
+				border-radius: 3px;\
+				vertical-align: middle;\
+				margin-bottom: 5px;\
+				-webkit-transition: border-color 137ms ease;\
+				-moz-transition: border-color 137ms ease;\
+				-o-transition: border-color 137ms ease;\
+				transition: border-color 137ms ease;\
+			}\
 			.productAttributeRow .productOptionViewRectangle li.option label,\
 			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label {\
 				padding: 5px 10px !important;\
 			}\
-			.productAttributeRow .productOptionPickListSwatch li.swatch label,\
 			.productAttributeRow .productOptionPickListSwatch li.swatch label {\
 				line-height: 27px;\
+				margin-bottom: 0px;\
 			}\
 			.productAttributeRow .productOptionPickListSwatch li.swatch .swatchColours,\
 			.productAttributeRow .productOptionPickListSwatch li.swatch .textureContainer,\
@@ -88,24 +101,13 @@
 				margin: 0 !important;\
 				width: auto;\
 			}\
-			.productAttributeRow .productOptionViewRectangle li.option,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option {\
-				box-sizing: border-box;\
-				border: 3px solid #eee !important;\
-				border-radius: 3px;\
-				vertical-align: middle;\
-			}\
 			.productAttributeRow .productOptionViewRectangle li.option:hover,\
 			.productAttributeRow .productOptionPickListSwatch li.swatch:hover,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch:hover,\
 			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option:hover {\
-				border: 3px solid #484848 !important;\
+				border: 3px solid #999 !important;\
 			}\
 			.productAttributeRow .productOptionViewRectangle li.option.selectedValue,\
 			.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue ,\
 			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option.selectedValue {\
 				border: 3px solid #39B54A !important;\
 			}\
