@@ -1,269 +1,278 @@
+<style>
+	.productAttributeConfigurablePickListSet .productAttributeLabel,
+	.productAttributeConfigurablePickListSwatch .productAttributeLabel {
+		text-align: center;
+		padding: 0;
+	}
+	.productAttributeConfigurablePickListSet .productAttributeLabel .name,
+	.productAttributeConfigurablePickListSwatch .productAttributeLabel .name {
+		font-family: tahoma;
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #39b54a;
+	}
+	.productAttributeRow .productAttributeLabel label {
+		text-align: center;
+		padding: 0px;
+	}
+	.productAttributeRow .productAttributeLabel .required {
+		display: none;
+	}
+	.productAttributeRow .productAttributeLabel .name {
+		font-family: tahoma;
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: rgb(57, 181, 74);
+	}
+	.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture {
+		vertical-align: middle;
+		box-sizing: border-box;
+		border: 5px solid #eee !important;
+		border-radius: 7px;
+		width: 28%;
+		width: calc(98% / 3);
+		margin-left: 0;
+	}
+	.productAttributeRow .productOptionPickListSwatch .swatchTexture.selectedValue {
+		border-color: #39b54a !important;
+	}
+	.accessoryOptionsSelection.productAttributeRow .productOptionPickListSwatch .swatchTexture label {
+		max-width: 100%;
+		padding: 3px;
+	}
+	.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {
+		margin-right:1% !important;
+	}
+	.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) {
+		margin-right:1% !important;
+	}
+	.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer {
+		max-width: 100%;
+		width: 100% !important;
+		border: 0 !important;
+		padding: 0 !important;
+	}
+	.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer .thumbnail {
+		max-width: 100%;
+		margin: 0 auto;
+		display: block;
+		width: 98% !important;
+	}
+	.productAttributeRow .productOptionViewRectangle ul,
+	.productAttributeRow .productOptionPickListSwatch ul {
+		width: auto;
+		margin: 0 auto;
+		font-size: 0;
+		text-align: center;
+	}
+	.productAttributeRow .productOptionPickListSwatch li + li,
+	.productAttributeRow .productOptionViewRectangle li + li {
+		margin-left: 3px;
+	}
+	.productAttributeRow.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {
+		display: block !important;
+		max-width: 120px;
+		font-size: 11px;
+		line-height: 1.3;
+		text-align: center;
+		margin: 3px auto !important;
+		min-height: 36px;
+	}
+	.productPage .productOptionPreviewDisplay,
+	.productAttributeRow .productOptionPickListSwatch .swatchTexture .preview {
+		display: none !important;
+	}
+	.productAttributeRow .productOptionViewRectangle li.option,
+	.productAttributeRow .productOptionPickListSwatch li.swatch,
+	.productAttributeRow .productOptionPickListSwatch li.swatchNone,
+	.productAttributeRow .productOptionViewRectangle .list-horizontal li.option {
+		box-sizing: border-box;
+		border: 3px solid #eee !important;
+		border-radius: 3px;
+		vertical-align: middle;
+		margin-bottom: 5px;
+		-webkit-transition: border-color 137ms ease;
+		-moz-transition: border-color 137ms ease;
+		-o-transition: border-color 137ms ease;
+		transition: border-color 137ms ease;
+	}
+	.productAttributeRow .productOptionViewRectangle li.option label,
+	.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label {
+		padding: 5px 10px !important;
+	}
+	.productAttributeRow .productOptionPickListSwatch li.swatch label {
+		line-height: 27px;
+		margin-bottom: 0px;
+	}
+	.productAttributeRow .productOptionPickListSwatch li.swatch .swatchColours,
+	.productAttributeRow .productOptionPickListSwatch li.swatch .textureContainer,
+	.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label,
+	.productAttributeRow .productOptionViewRectangle li.option label {
+		border: 0 !important;
+		margin: 0 !important;
+		width: auto;
+	}
+	.productAttributeRow .productOptionViewRectangle li.option:hover,
+	.productAttributeRow .productOptionPickListSwatch li.swatch:hover,
+	.productAttributeRow .productOptionPickListSwatch li.swatchNone:hover,
+	.productAttributeRow .productOptionViewRectangle .list-horizontal li.option:hover {
+		border: 3px solid #999 !important;
+	}
+	.productAttributeRow .productOptionViewRectangle li.option.selectedValue,
+	.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue,
+	.productAttributeRow .productOptionPickListSwatch li.swatchNone.selectedValue,
+	.productAttributeRow .productOptionViewRectangle .list-horizontal li.option.selectedValue {
+		border: 3px solid #39B54A !important;
+	}
+	.productOptionPickListSwatch .thumbnail,
+	.productOptionPickListSwatch .swatchColour {
+		width: 27px !important;
+		height: 27px !important;
+	}
+	/* HTML changes were made on Panels/ProductDetails.html */\
+	#ProductDetails .ProductMain #desktopProductHeading {
+		margin-bottom: 10px;
+	}
+	#ProductDetails .ProductMain .DetailRow.PriceRow.p-price {
+		display: inline-block;
+		margin-bottom: 6px;
+	}
+	#ProductDetails .ProductMain .yotpo.bottomLine.yotpo-small {
+	}
+	#ProductDetails .ProductMain .DetailRow.qty {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flexbox;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	    -webkit-flex-direction: row;
+	    -webkit-justify-content: flex-start;
+	    -ms-flex-direction: row;
+	    -ms-justify-content: flex-start;
+	    flex-direction: row;
+	    justify-content: flex-start;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flexbox;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flexbox;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	    -webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+		flex-direction: column;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .Value.AddCartButton {
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .qtyInput.quantityInput {
+		width: 100%;
+		margin-bottom:0px;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount {
+		display: inline-block;
+		vertical-align: middle;
+		width: 100%;
+		float: right;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+	}
+	#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount input {
+		margin: 0;
+	}
+	#ProductDetails .ProductMain .qty .DetailRow.InventoryLevel {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0;
+		width: 76%;
+		float: right;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+	}
+	#ProductDetails .ProductMain .DetailRow.InventoryLevel .Label {
+		display: none;
+	}
+	#ProductDetails .ProductMain .DetailRow.InventoryLevel .Value {
+		line-height: 46px;
+	}
+	#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline {
+		margin-bottom: 10px;
+	}
+	#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyOutOfStock {
+		font-size: 11px;
+		font-weight: normal;
+		text-align: center;
+	}
+	#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyEmailAddress {
+		color: #666666 !important;
+		background: #f8f8f8;
+		text-align: center;
+	}
+	#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick {
+		text-shadow: none;
+		box-shadow: none;
+		font-family: Questrial;
+		font-weight: normal;
+		position: relative;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border: 2px solid #39b54a;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		margin: 0;
+	}
+	#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick:hover {
+		background-color: #fff;
+		color: #39b54a;
+	}
+	#ProductDetails .ProductMain #SideProductAddToWishList {
+		margin-bottom: 10px;
+	}
+	#ProductDetails .ProductMain #SideProductAddToWishList .wishbtn,
+	#ProductDetails .ProductMain #SideProductAddToWishList .wishTrigger {
+		background-color: #62BEC7;
+		border-color: #62BEC7;
+	}
+	#ProductDetails .ProductMain #SideProductAddToWishList .wishbtn:hover,
+	#ProductDetails .ProductMain #SideProductAddToWishList .wishTrigger:hover {
+		background-color: #fff;
+		color: #62BEC7;
+	}
+	@media screen and (max-width: 767px) {
+		.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {
+			margin-right:4% !important;
+		}
+		.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {
+			margin-right:4% !important;
+		}
+	}
+</style>
 <script type="text/javascript">
-    $('<style type="text/css">\
-			/* Product Page Overhaul and Options Upsell Choice */\
-			.productAttributeRow .productAttributeLabel label {\
-				text-align: center;\
-				padding: 0px;\
-			}\
-			.productAttributeRow .productAttributeLabel .required {\
-				display: none;\
-			}\
-			.productAttributeRow .productAttributeLabel .name {\
-				font-family: tahoma;\
-				font-size: 14px;\
-				font-weight: 700;\
-				text-transform: uppercase;\
-				color: rgb(57, 181, 74);\
-			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture {\
-				vertical-align: middle;\
-				box-sizing: border-box;\
-				border: 5px solid #eee !important;\
-				border-radius: 7px;\
-				width: 28%;\
-				width: calc(98% / 3);\
-				margin-left: 0;\
-			}\
-			.productAttributeRow .productOptionPickListSwatch .swatchTexture.selectedValue {\
-				border-color: #39b54a !important;\
-			}\
-			.accessoryOptionsSelection.productAttributeRow .productOptionPickListSwatch .swatchTexture label {\
-				max-width: 100%;\
-				padding: 3px;\
-			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) {\
-				margin-right:1% !important;\
-			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) {\
-				margin-right:1% !important;\
-			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer {\
-				max-width: 100%;\
-				width: 100% !important;\
-				border: 0 !important;\
-				padding: 0 !important;\
-			}\
-			.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .textureContainer .thumbnail {\
-				max-width: 100%;\
-				margin: 0 auto;\
-				display: block;\
-				width: 98% !important;\
-			}\
-			.productAttributeRow .productOptionViewRectangle ul,\
-			.productAttributeRow .productOptionPickListSwatch ul {\
-				width: auto;\
-				margin: 0 auto;\
-				font-size: 0;\
-				text-align: center;\
-			}\
-			.productAttributeRow .productOptionPickListSwatch li + li,\
-			.productAttributeRow .productOptionViewRectangle li + li {\
-				margin-left: 3px;\
-			}\
-			.productAttributeRow.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture .name {\
-				display: block !important;\
-				max-width: 120px;\
-				font-size: 0.9vw;\
-				/*height: 40px;*/\
-				line-height: 1.3;\
-				text-align: center;\
-				margin: 0 auto !important;\
-			}\
-			.productAttributeRow .productOptionPickListSwatch .swatchTexture .preview {\
-				display: none;\
-			}\
-			.productAttributeRow .productOptionViewRectangle li.option,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch,\
-			.productAttributeRow .productOptionPickListSwatch li.swatchNone,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option {\
-				box-sizing: border-box;\
-				border: 3px solid #eee !important;\
-				border-radius: 3px;\
-				vertical-align: middle;\
-				margin-bottom: 5px;\
-				-webkit-transition: border-color 137ms ease;\
-				-moz-transition: border-color 137ms ease;\
-				-o-transition: border-color 137ms ease;\
-				transition: border-color 137ms ease;\
-			}\
-			.productAttributeRow .productOptionViewRectangle li.option label,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label {\
-				padding: 5px 10px !important;\
-			}\
-			.productAttributeRow .productOptionPickListSwatch li.swatch label {\
-				line-height: 27px;\
-				margin-bottom: 0px;\
-			}\
-			.productAttributeRow .productOptionPickListSwatch li.swatch .swatchColours,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch .textureContainer,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option label,\
-			.productAttributeRow .productOptionViewRectangle li.option label {\
-				border: 0 !important;\
-				margin: 0 !important;\
-				width: auto;\
-			}\
-			.productAttributeRow .productOptionViewRectangle li.option:hover,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch:hover,\
-			.productAttributeRow .productOptionPickListSwatch li.swatchNone:hover,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option:hover {\
-				border: 3px solid #999 !important;\
-			}\
-			.productAttributeRow .productOptionViewRectangle li.option.selectedValue,\
-			.productAttributeRow .productOptionPickListSwatch li.swatch.selectedValue,\
-			.productAttributeRow .productOptionPickListSwatch li.swatchNone.selectedValue,\
-			.productAttributeRow .productOptionViewRectangle .list-horizontal li.option.selectedValue {\
-				border: 3px solid #39B54A !important;\
-			}\
-			.productOptionPickListSwatch .thumbnail,\
-			.productOptionPickListSwatch .swatchColour {\
-				width: 27px !important;\
-				height: 27px !important;\
-			}\
-			/* HTML changes were made on Panels/ProductDetails.html */\
-			#ProductDetails .ProductMain #desktopProductHeading {\
-				margin-bottom: 10px;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.PriceRow.p-price {\
-				display: inline-block;\
-				margin-bottom: 6px;\
-			}\
-			#ProductDetails .ProductMain .yotpo.bottomLine.yotpo-small {\
-				//display: inline-block;\
-				//position: absolute;\
-				//right: 0;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty {\
-				display: -webkit-box;\
-				display: -moz-box;\
-				display: -webkit-flexbox;\
-				display: -ms-flexbox;\
-				display: -webkit-flex;\
-				display: flex;\
-			    -webkit-flex-direction: row;\
-			    -webkit-justify-content: flex-start;\
-			    -ms-flex-direction: row;\
-			    -ms-justify-content: flex-start;\
-			    flex-direction: row;\
-			    justify-content: flex-start;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto {\
-				display: -webkit-box;\
-				display: -moz-box;\
-				display: -webkit-flexbox;\
-				display: -ms-flexbox;\
-				display: -webkit-flex;\
-				display: flex;\
-				vertical-align: middle;\
-				margin: 0;\
-				padding: 0;\
-				border: 0;\
-				-webkit-flex-grow: 1;\
-				-ms-flex-grow: 1;\
-				flex-grow: 1;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer {\
-				display: -webkit-box;\
-				display: -moz-box;\
-				display: -webkit-flexbox;\
-				display: -ms-flexbox;\
-				display: -webkit-flex;\
-				display: flex;\
-			    -webkit-flex-direction: column;\
-			    -ms-flex-direction: column;\
-				flex-direction: column;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .Value.AddCartButton {\
-				-webkit-flex-grow: 1;\
-				-ms-flex-grow: 1;\
-				flex-grow: 1;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto .quantitySelectorContainer .qtyInput.quantityInput {\
-				width: 100%;\
-				margin-bottom:0px;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount {\
-				display: inline-block;\
-				vertical-align: middle;\
-				width: 100%;\
-				float: right;\
-				-webkit-flex-grow: 1;\
-				-ms-flex-grow: 1;\
-				flex-grow: 1;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.qty .addto .BulkDiscount input {\
-				margin: 0;\
-			}\
-			#ProductDetails .ProductMain .qty .DetailRow.InventoryLevel {\
-				display: inline-block;\
-				vertical-align: middle;\
-				margin: 0;\
-				width: 76%;\
-				float: right;\
-				-webkit-flex-grow: 1;\
-				-ms-flex-grow: 1;\
-				flex-grow: 1;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.InventoryLevel .Label {\
-				display: none;\
-			}\
-			#ProductDetails .ProductMain .DetailRow.InventoryLevel .Value {\
-				line-height: 46px;\
-			}\
-			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline {\
-				margin-bottom: 10px;\
-			}\
-			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyOutOfStock {\
-				font-size: 11px;\
-				font-weight: normal;\
-				text-align: center;\
-			}\
-			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyEmailAddress {\
-				color: #666666 !important;\
-				background: #f8f8f8;\
-				text-align: center;
-			}\
-			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick {\
-				text-shadow: none;\
-				box-shadow: none;\
-				font-family: Questrial;\
-				font-weight: normal;\
-				position: relative;\
-				-webkit-box-sizing: border-box;\
-				-moz-box-sizing: border-box;\
-				box-sizing: border-box;\
-				border: 2px solid #39b54a;\
-				-webkit-transition: all 0.3s;\
-				-moz-transition: all 0.3s;\
-				transition: all 0.3s;\
-				margin: 0;\
-			}\
-			#ProductDetails .ProductMain .OutOfStockMessage #InStockNotifyInline #InStockNotifyClick:hover {\
-				background-color: #fff;\
-				color: #39b54a;\
-			}\
-			#ProductDetails .ProductMain #SideProductAddToWishList {\
-				margin-bottom: 10px;\
-			}\
-			#ProductDetails .ProductMain #SideProductAddToWishList .wishbtn,\
-			#ProductDetails .ProductMain #SideProductAddToWishList .wishTrigger {\
-				background-color: #62BEC7;\
-				border-color: #62BEC7;\
-			}\
-			#ProductDetails .ProductMain #SideProductAddToWishList .wishbtn:hover,\
-			#ProductDetails .ProductMain #SideProductAddToWishList .wishTrigger:hover {\
-				background-color: #fff;\
-				color: #62BEC7;\
-			}\
-			@media screen and (max-width: 767px) {\
-				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(1) .textureContainer {\
-					margin-right:4% !important;\
-				}\
-				.accessoryOptionsSelection .productOptionPickListSwatch .swatchTexture:nth-of-type(2) .textureContainer {\
-					margin-right:4% !important;\
-				}\
-			}\
-			</style>')
-        .appendTo('head');
 
 	//jQuery Styles function
 	(function($) {    
@@ -336,161 +345,68 @@
 //This function improves the Color or Size Style selection on Product Pages
 		function productPageChooseStyle() {
 			var chooseStylenName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Choose Style")');
-			chooseStylenName.css({
-				'font-family' : 'tahoma',
-				'font-size' : '14px',
-				'font-weight' : '700',
-				'text-transform' : 'uppercase',
-				'color' : '#39b54a',
-			});
-			chooseStylenName.parent().css({
-				'text-align' : 'center',
-				'padding' : '0',
-			});
 			var mainChooseStyleContainer = chooseStylenName.parents().eq(2);
 			mainChooseStyleContainer.addClass('productChooseStyle');
-			$('.productChooseStyle').find('.required').hide();
-			var styleChoiceListItems = mainChooseStyleContainer.find('.productOptionViewRectangle li.option');
-			var ulStyleChoiceWidth = 0;
-			styleChoiceListItems.each(function() {
-			    ulStyleChoiceWidth = ulStyleChoiceWidth + $(this).width() + 2
-			});
-			styleChoiceListItems.parent().css({
-				'width' : (ulStyleChoiceWidth + 42),
-				'margin' : '0 auto',
-			});
 		};
 		productPageChooseStyle();
 
 //This function improves the Color or Size Options selection on Product Pages
 		function productPageChooseOptions() {
 			var chooseOptionsnName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Choose Options")');
-			chooseOptionsnName.css({
-				'font-family' : 'tahoma',
-				'font-size' : '14px',
-				'font-weight' : '700',
-				'text-transform' : 'uppercase',
-				'color' : '#39b54a',
-			});
-			chooseOptionsnName.parent().css({
-				'text-align' : 'center',
-				'padding' : '0',
-			});
 			var mainChooseOptionsContainer = chooseOptionsnName.parents().eq(2);
 			mainChooseOptionsContainer.addClass('productChooseOptions');
-			$('.productChooseOptions').find('.required').hide();
 		};
 		productPageChooseOptions();
 		
 //This function improves the Color Options selection on Product Pages
 		function productPageColorSwatchImprovements() {
 			var productColorChoiceName = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Color:")');
-			productColorChoiceName.css({
-				'font-family' : 'tahoma',
-				'font-size' : '14px',
-				'font-weight' : '700',
-				'text-transform' : 'uppercase',
-				'color' : '#39b54a',
-			});
-			productColorChoiceName.parent().css({
-				'text-align' : 'center',
-				'padding' : '0',
-			});
 			var mainColorChoiceContainer = productColorChoiceName.parents().eq(2);
 			mainColorChoiceContainer.addClass('productColorSelection');
-			$('.productColorSelection').find('.required').hide();
-			var colorChoiceListItems = mainColorChoiceContainer.find('.productOptionPickListSwatch li.swatch');
-			colorChoiceListItems.find('label').css('margin-bottom', '0');
-/*
-			var ulColorChoiceWidth = 0;
-			colorChoiceListItems.each(function() {
-			    ulColorChoiceWidth = ulColorChoiceWidth + $(this).width()
-			});
-*/
-/*
-			var optionPreview = $(this).parents().eq(1).find('.previewContent');
-			optionPreview.remove();
-*/
-/*
-			colorChoiceListItems.parent().css({
-				'width' : (ulColorChoiceWidth + 17),
-				'margin' : '0 auto',
-			});
-*/
 		};
 		productPageColorSwatchImprovements();
 			
 //This function improves the Size Options selection on Product Pages
 		function productPageSizeSelectionImprovements() {
 			var productSizeSelectionName = $('.productAttributeConfigurablePickListSet .productAttributeLabel .name:contains("Joint Size")');
-			productSizeSelectionName.css({
-				'font-family' : 'tahoma',
-				'font-size' : '14px',
-				'font-weight' : '700',
-				'text-transform' : 'uppercase',
-				'color' : '#39b54a',
-			});
-			productSizeSelectionName.parent().css({
-				'text-align' : 'center',
-				'padding' : '0',
-			});
 			var mainSizeContainer = productSizeSelectionName.parents().eq(2);
 			mainSizeContainer.addClass('productSizeSelection');
-			$('.productSizeSelection').find('.required').hide();
-			var sizeSelectionListItems = mainSizeContainer.find('.productOptionViewRectangle li.option');
-			//sizeSelectionListItems.find('label').css('margin-bottom', '0');
-			sizeSelectionListItems.find('label').attr({style: 'margin-bottom: 0 !important;'});
-			var ulSizeSelectionWidth = 0;
-			sizeSelectionListItems.each(function() {
-			    ulSizeSelectionWidth = ulSizeSelectionWidth + $(this).width()
-			});
-			sizeSelectionListItems.parent().css({
-				'width' : (ulSizeSelectionWidth + 21),
-				'margin' : '0 auto',
-			});
 		};
 		productPageSizeSelectionImprovements();
 		
 //This function improves the Accessory Choice Selection on Product Pages
 		function productAccessoryChoice() {
-			var productAccessoryChoiceExistance = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
-			productAccessoryChoiceExistance.parents().eq(2).addClass('accessoryOptionsSelection');
-			if (productAccessoryChoiceExistance.length) {
-				var rquiredOptionAsterisk = productAccessoryChoiceExistance.parents().eq(2).find('.productAttributeLabel .required');
-				rquiredOptionAsterisk.hide();
-				productAccessoryChoiceExistance.parent().css({
-					'text-align' : 'center',
-					'text-transform' : 'uppercase',
-					'color' : '#39b54a',
-					'font-weight' : '700',
-				});
+			//productAccessoryChoiceExistance
+			var prodACE = $('.productAttributeConfigurablePickListSwatch .productAttributeLabel .name:contains("Choose one:")');
+			prodACE.parents().eq(2).addClass('accessoryOptionsSelection');
+			if (prodACE.length) {
 				// Create the thumbnails object with URLs as values and corresponding option names as index
-				var optionThumbnails = productAccessoryChoiceExistance.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
-				optionThumbUrlObject = {};				
-				optionThumbnails.each(function() {
-					var optionName = $(this).parent().parent().find('.name').text();
-					var optionImage = $(this).parents().eq(1).find('.previewContent .preview');
-					var optionImageUrl = optionImage.attr('src');
-					var thumbWidth = $(this).width();
-					var thumbHeight = thumbWidth * 1.25;
-					$(this).attr({style: 'background-image: url("' + optionImageUrl + '"); height: ' + thumbHeight + 'px !important;'});
-					optionThumbUrlObject[optionName] = optionImageUrl;
+				var optThumbs = prodACE.parents().eq(2).find('.swatchTexture .textureContainer .thumbnail');
+				optThumbObj = {};				
+				optThumbs.each(function() {
+					var oN = $(this).parent().parent().find('.name').text();
+					var oI = $(this).parents().eq(1).find('.previewContent .preview');
+					var oIU = oI.attr('src');
+					var tW = $(this).width();
+					var tH = tW * 1.25;
+					$(this).attr({style: 'background-image: url("' + oIU + '"); height: ' + tH + 'px !important;'});
+					optThumbObj[oN] = oIU;
 				});
 				// Dynamically set the thumbnail height as width*1.25
-				function thumbHeightSetter() {
-					optionThumbnails.each(function() {
-							var optionName = $(this).parent().parent().find('.name').text();
-							var thumbWidth = $(this).width();
-							var thumbHeight = thumbWidth * 1.25;
-							$(this).attr({style: 'background-image: url("' + optionThumbUrlObject[optionName] + '"); height: ' + thumbHeight + 'px !important;'});
+				function tHSetter() {
+					optThumbs.each(function() {
+						var oN = $(this).parent().parent().find('.name').text();
+						var tW = $(this).width();
+						var tH = tW * 1.25;
+						$(this).attr({style: 'background-image: url("' + optThumbObj[oN] + '"); height: ' + tH + 'px !important;'});
 					});
 				};
-				thumbHeightSetter();
+				tHSetter();
 				// Remove preview popup boxes from product accessory choice after the image URL are retrieved and stored
 				var optionPreview = $('.accessoryOptionsSelection .previewContent');
-				optionPreview.remove();
+				//optionPreview.remove();
 				// Define the mouse  hover behavior for the accessory option choice list items
-				var optionListItem = productAccessoryChoiceExistance.parents().eq(2).find('li.swatchTexture');
+				var optionListItem = prodACE.parents().eq(2).find('li.swatchTexture');
 	            optionListItem.on({
 	                mouseenter: function(event) {
 	                    if (!$(this).hasClass('selectedValue')) {
@@ -502,36 +418,29 @@
 	                }
 	            });
 				// Find the width of all list items and set their ul to this width
-				function optionsUlWidthSetter() {
-					var optionChoiceUl = optionThumbnails.parents('.productOptionPickListSwatch ul');
-					var optionChoiceUlWidth = optionThumbnails.parents('.productOptionPickListSwatch').width() - 20;
-					optionChoiceUl.css('width', optionChoiceUlWidth);
-				};
-				//optionsUlWidthSetter();
 				// Find the tallest .name span and set the others to same height
-				function optionNameSpanHeightSetter() {
-		            var highestOptionNameSpan = null;
+				function oNSpanHeightSetter() {
+		            var highestoNSpan = null;
 					var highestSpan = 0;
-					var optionNameSpan = optionListItem.find('.name');
-					optionNameSpan.each(function() {
-						if (highestOptionNameSpan == null) {
-								highestOptionNameSpan = $(this);
+					var oNSpan = optionListItem.find('.name');
+					oNSpan.each(function() {
+						if (highestoNSpan == null) {
+								highestoNSpan = $(this);
 								highestSpan = $(this).height();
 							}
 						else if ($(this).height() > highestSpan) {
-							highestOptionNameSpan = $(this);
+							highestoNSpan = $(this);
 							highestSpan = $(this).height();
 						}
 					});
-					optionNameSpan.css('height', highestSpan);
+					oNSpan.css('height', highestSpan);
 				};
-				optionNameSpanHeightSetter();
+				oNSpanHeightSetter();
 				// Sold Out Products edits
 				// Call all the resizing functions upon window resize
 				$( window ).bind("resize", function(){
-					optionNameSpanHeightSetter();
-					//optionsUlWidthSetter();
-					thumbHeightSetter();
+					oNSpanHeightSetter();
+					tHSetter();
 				});
 			}
 		};
@@ -558,7 +467,6 @@
 				// create an observer instance
 				var observer = new MutationObserver(function(mutations) {
 				    mutations.forEach(function(mutation) {
-				        //console.log(mutation.type);
 				        hideLowInvAndShare();
 				    });
 				});
