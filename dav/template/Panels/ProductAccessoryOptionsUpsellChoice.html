@@ -405,14 +405,14 @@
 					$('.shareSlide').fadeIn('slow');
 				} else if ($('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
 					quantitySelectorBox.fadeOut('slow');
-					$('.shareSlide').fadeOut('slow');
+					$('.shareSlide').hide();
 				} else if (!$('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
 					quantitySelectorBox.fadeIn('slow');
 					$('.shareSlide').fadeIn('slow');
 				}
 			}
 			hideLowInvAndShare();
-			$('li.swatch input').on('click', function() {
+			$('.productAttributeList li input').on('click', function() {
 				hideLowInvAndShare();
 			});
 			function invLevelObserver() {
