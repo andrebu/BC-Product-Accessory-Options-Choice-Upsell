@@ -396,20 +396,25 @@
 		productAccessoryChoice();
 		function soldOutProducts() {
 			var soldOutButton = $('.VariationProductInventory:contains("Sold out!")').parents('.InventoryLevel');
-			var quantitySelectorBox = $('.DetailRow.qty .addto');
+			var quantitySelectorBox = $('.addto');
 			soldOutButton.insertAfter(quantitySelectorBox);
 			function hideLowInvAndShare() {
 				if (($('.VariationProductInventory').text().trim() != 'Sold out!') && ($('.VariationProductInventory').text().trim() != '')) {
-					$('.VariationProductInventory').parents('.InventoryLevel').hide();
-					$('.shareSlide').show();
+					$('.VariationProductInventory').parents('.InventoryLevel').fadeOut('slow');
+					quantitySelectorBox.fadeIn('slow');
+					$('.shareSlide').fadeIn('slow');
 				} else if ($('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
-					quantitySelectorBox.hide();
-					$('.shareSlide').hide();
+					quantitySelectorBox.fadeOut('slow');
+					$('.shareSlide').fadeOut('slow');
 				} else if (!$('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
-					$('.shareSlide').show();
+					quantitySelectorBox.fadeIn('slow');
+					$('.shareSlide').fadeIn('slow');
 				}
 			}
 			hideLowInvAndShare();
+			$('li.swatch input').on('click', function() {
+				hideLowInvAndShare();
+			});
 			function invLevelObserver() {
 				// select the target node
 				var target = document.querySelector('.DetailRow.InventoryLevel');
