@@ -400,11 +400,11 @@
 			soldOutButton.insertAfter(quantitySelectorBox);
 			function hideLowInvAndShare() {
 				if (($('.VariationProductInventory').text().trim() != 'Sold out!') && ($('.VariationProductInventory').text().trim() != '')) {
-					$('.VariationProductInventory').parents('.InventoryLevel').fadeOut('slow');
+					$('.VariationProductInventory').parents('.InventoryLevel').hide();
 					quantitySelectorBox.fadeIn('slow');
 					$('.shareSlide').fadeIn('slow');
 				} else if ($('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
-					quantitySelectorBox.fadeOut('slow');
+					quantitySelectorBox.hide();
 					$('.shareSlide').hide();
 				} else if (!$('.VariationProductInventory:contains("Sold out!")').is(':visible')) {
 					quantitySelectorBox.fadeIn('slow');
