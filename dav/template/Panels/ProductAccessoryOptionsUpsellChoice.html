@@ -2,6 +2,7 @@
 	.DetailRow.gift-wrapping {
 		text-align: center;
 		margin: 0 0 30px;
+		cursor: default;
 	}
 	.DetailRow.gift-wrapping .Label {
 		font-family: tahoma;
@@ -13,6 +14,18 @@
 	.DetailRow.gift-wrapping .Value {
 		font-family: futura;
 		font-size: 15px;
+	}
+	.DetailRow.gift-wrapping .Value:before {
+		content: "\f06b";
+		display: inline-block;
+		font: normal normal normal 22px/1 FontAwesome;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		transform: translate(0, 0);
+		vertical-align: bottom;
+		margin: 0 4px 0 0;
+		color: #F47D77;
 	}
 	.productAttributeConfigurablePickListSet .productAttributeLabel,
 	.productAttributeConfigurablePickListSwatch .productAttributeLabel {
